@@ -820,8 +820,12 @@ export function createTerminal(buffer, options) {
     } else if (cmd === "help") {
       showHelp();
       attachPrompt(cwd, branch);
-    } else if (cmd === "exit" || cmd === "q") {
-      if (typeof window !== "undefined") window.location.href = "/";
+    } else if (cmd === "exit" || cmd === "q" || cmd === "gui") {
+      if (typeof window !== "undefined" && typeof window.__triggerGuiTransition === "function") {
+        window.__triggerGuiTransition("/");
+      } else if (typeof window !== "undefined") {
+        window.location.href = "/";
+      }
     } else {
       buffer.append(row([[`fish: Unknown command '${rawCmd}'. Type 'ls' to list projects or 'help' for commands.`, "t-dim"]]));
       attachPrompt(cwd, branch);

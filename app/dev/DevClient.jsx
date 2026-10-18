@@ -541,8 +541,12 @@ function DevWorkspace({ onReturnToIntro }) {
       const [name, ...rest] = text.trim().split(/\s+/);
       const arg = rest.join(" ");
       if (!name) return say("");
-      if (/^q(a|all)?!?$/.test(name) || name === "wq" || name === "x") {
-        location.href = "/";
+      if (/^(q(a|all)?!?|wq|x|gui|exit)$/.test(name)) {
+        if (typeof window !== "undefined" && typeof window.__triggerGuiTransition === "function") {
+          window.__triggerGuiTransition("/");
+        } else {
+          location.href = "/";
+        }
         return;
       }
       if (name === "ls" || name === "projects" || name === "proj") {

@@ -221,3 +221,584 @@
     display: none;
   }
 }
+
+
+/* ==========================================================================
+   TERMINAL -> GUI TRANSITION (CRT BEAM COLLAPSE & COMPOSITOR WAKE)
+   ========================================================================== */
+
+.gui-transition-root {
+  position: fixed;
+  inset: 0;
+  z-index: 999999;
+  pointer-events: all;
+  overflow: hidden;
+  user-select: none;
+  background-color: #050505;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-jetbrains-mono), "Plex Mono", ui-monospace, monospace;
+}
+
+/* CRT Screen Collapse Container */
+.gui-crt-container {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  overflow: hidden;
+  z-index: 2;
+}
+
+.gui-crt-screen {
+  position: absolute;
+  inset: 0;
+  background: #050505;
+  animation: gui-crt-screen-collapse 0.38s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+  transform-origin: center center;
+}
+
+.gui-crt-scanlines {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to bottom,
+    rgba(255, 255, 255, 0),
+    rgba(255, 255, 255, 0) 50%,
+    rgba(0, 0, 0, 0.7) 50%,
+    rgba(0, 0, 0, 0.7)
+  );
+  background-size: 100% 3px;
+  opacity: 0.8;
+}
+
+.gui-crt-vignette {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at center, transparent 40%, rgba(0, 0, 0, 0.95) 100%);
+}
+
+.gui-crt-grid {
+  position: absolute;
+  inset: 0;
+  background-image: 
+    linear-gradient(rgba(0, 243, 255, 0.05) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(0, 243, 255, 0.05) 1px, transparent 1px);
+  background-size: 32px 32px;
+  opacity: 0.6;
+}
+
+/* Intense horizontal CRT electron beam */
+.gui-crt-beam {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: linear-gradient(
+    90deg,
+    rgba(0, 243, 255, 0) 0%,
+    rgba(0, 243, 255, 0.8) 15%,
+    #ffffff 50%,
+    rgba(0, 243, 255, 0.8) 85%,
+    rgba(0, 243, 255, 0) 100%
+  );
+  box-shadow: 
+    0 0 10px #00f3ff,
+    0 0 20px #00f3ff,
+    0 0 40px #ffffff;
+  transform: translateY(-50%) scaleX(1);
+  transform-origin: center center;
+  z-index: 5;
+  animation: gui-beam-implode 0.38s cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
+}
+
+/* Central phosphor dot singularity */
+.gui-phosphor-singularity {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 6px;
+  height: 6px;
+  margin-top: -3px;
+  margin-left: -3px;
+  border-radius: 50%;
+  background: #ffffff;
+  box-shadow: 
+    0 0 20px #ffffff,
+    0 0 45px #00f3ff,
+    0 0 75px #00f3ff;
+  z-index: 6;
+  opacity: 0;
+  animation: gui-singularity-flash 0.42s ease-out forwards;
+}
+
+/* Modern Compositor Aperture & Light Shockwave */
+.gui-compositor-aperture {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  pointer-events: none;
+  z-index: 4;
+}
+
+.gui-aperture-glow {
+  position: absolute;
+  width: 600px;
+  height: 600px;
+  border-radius: 50%;
+  background: radial-gradient(
+    circle at center,
+    rgba(0, 243, 255, 0.15) 0%,
+    rgba(235, 230, 219, 0.08) 35%,
+    transparent 70%
+  );
+  filter: blur(20px);
+  animation: gui-glow-pulse 0.45s ease-out forwards;
+}
+
+.gui-aperture-ring {
+  position: absolute;
+  width: 320px;
+  height: 320px;
+  border-radius: 50%;
+  border: 1px dashed rgba(0, 243, 255, 0.35);
+  box-shadow: 
+    0 0 35px rgba(0, 243, 255, 0.2),
+    inset 0 0 25px rgba(0, 243, 255, 0.15);
+  animation: gui-ring-spin 0.45s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.gui-aperture-iris {
+  position: absolute;
+  width: 220px;
+  height: 220px;
+  border-radius: 50%;
+  border: 1px solid rgba(235, 230, 219, 0.25);
+  animation: gui-iris-expand 0.4s ease-out forwards;
+}
+
+/* Telemetry HUD Card */
+.gui-hud-card {
+  position: relative;
+  z-index: 10;
+  display: flex;
+  flex-direction: column;
+  width: 480px;
+  max-width: 90vw;
+  padding: 24px 28px;
+  background: rgba(10, 10, 12, 0.88);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(235, 230, 219, 0.15);
+  border-radius: 12px;
+  box-shadow:
+    0 24px 60px rgba(0, 0, 0, 0.9),
+    0 0 30px rgba(0, 243, 255, 0.1),
+    inset 0 1px 0 rgba(255, 255, 255, 0.1);
+  animation: gui-hud-appear 0.32s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.gui-hud-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 16px;
+  padding-bottom: 12px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.gui-hud-indicator {
+  position: relative;
+  width: 8px;
+  height: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.gui-hud-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background-color: #00f3ff;
+  box-shadow: 0 0 8px #00f3ff;
+}
+
+.gui-hud-pulse {
+  position: absolute;
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  border: 1px solid #00f3ff;
+  animation: gui-dot-ping 1s cubic-bezier(0, 0, 0.2, 1) infinite;
+}
+
+.gui-hud-title {
+  color: #ebe6db;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+.gui-hud-badge {
+  font-size: 10px;
+  color: #a9a49a;
+  background: rgba(255, 255, 255, 0.06);
+  padding: 2px 7px;
+  border-radius: 4px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  letter-spacing: 0.08em;
+}
+
+.gui-hud-flow {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: rgba(0, 0, 0, 0.45);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  border-radius: 8px;
+  padding: 10px 14px;
+  margin-bottom: 16px;
+}
+
+.gui-hud-node {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.gui-hud-node-to {
+  text-align: right;
+}
+
+.gui-hud-node-tag {
+  font-size: 9px;
+  letter-spacing: 0.1em;
+  color: #6f6b64;
+}
+
+.gui-hud-node-val {
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  color: #ebe6db;
+}
+
+.gui-hud-node-to .gui-hud-node-val {
+  color: #00f3ff;
+  text-shadow: 0 0 10px rgba(0, 243, 255, 0.4);
+}
+
+.gui-hud-arrow {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  color: #a9a49a;
+  opacity: 0.7;
+}
+
+.gui-hud-arrow-line {
+  width: 28px;
+  height: 1px;
+  background: linear-gradient(90deg, rgba(235, 230, 219, 0.3), #00f3ff);
+}
+
+.gui-hud-arrow-head {
+  font-size: 9px;
+  color: #00f3ff;
+}
+
+.gui-hud-terminal-log {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  margin-bottom: 18px;
+  font-size: 10.5px;
+  letter-spacing: 0.06em;
+  color: #a9a49a;
+}
+
+.gui-log-line {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.gui-log-prompt {
+  color: #6f6b64;
+  font-weight: 600;
+}
+
+.gui-log-highlight {
+  color: #ebe6db;
+}
+
+.gui-log-highlight span:last-child {
+  color: #00f3ff;
+  font-weight: 500;
+}
+
+/* Progress bar */
+.gui-hud-progress-wrap {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.gui-hud-progress-track {
+  width: 100%;
+  height: 4px;
+  background: rgba(255, 255, 255, 0.08);
+  border-radius: 2px;
+  overflow: hidden;
+}
+
+.gui-hud-progress-fill {
+  height: 100%;
+  width: 0%;
+  background: linear-gradient(90deg, #00f3ff, #ebe6db);
+  box-shadow: 0 0 10px rgba(0, 243, 255, 0.6);
+  animation: gui-progress-fill 0.35s ease-out forwards;
+}
+
+.gui-hud-progress-labels {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 9.5px;
+  color: #6f6b64;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.gui-hud-percent {
+  color: #00f3ff;
+  font-weight: 600;
+}
+
+/* Settling Phase: Smooth aperture dissolve into GUI */
+.gui-transition-root.is-settling {
+  animation: gui-settle-backdrop 0.36s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.gui-transition-root.is-settling .gui-hud-card {
+  animation: gui-hud-dissolve 0.3s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.gui-transition-root.is-settling .gui-aperture-ring {
+  animation: gui-ring-burst 0.35s ease-out forwards;
+}
+
+.gui-transition-root.is-settling .gui-aperture-glow {
+  animation: gui-glow-burst 0.35s ease-out forwards;
+}
+
+/* Keyframes for Terminal -> GUI */
+
+@keyframes gui-crt-screen-collapse {
+  0% {
+    transform: scale(1);
+    filter: brightness(1);
+    opacity: 1;
+  }
+  50% {
+    transform: scaleY(0.015) scaleX(1.02);
+    filter: brightness(2.2);
+    opacity: 0.95;
+  }
+  80% {
+    transform: scaleY(0.003) scaleX(0.3);
+    filter: brightness(4);
+    opacity: 0.8;
+  }
+  100% {
+    transform: scaleY(0.001) scaleX(0.001);
+    filter: brightness(6);
+    opacity: 0;
+  }
+}
+
+@keyframes gui-beam-implode {
+  0% {
+    opacity: 0;
+    transform: translateY(-50%) scaleX(1);
+  }
+  25% {
+    opacity: 1;
+    transform: translateY(-50%) scaleX(1.05) scaleY(2.2);
+  }
+  65% {
+    opacity: 1;
+    transform: translateY(-50%) scaleX(0.4) scaleY(1.5);
+  }
+  90% {
+    opacity: 1;
+    transform: translateY(-50%) scaleX(0.04) scaleY(1);
+  }
+  100% {
+    opacity: 0;
+    transform: translateY(-50%) scaleX(0) scaleY(0);
+  }
+}
+
+@keyframes gui-singularity-flash {
+  0% {
+    opacity: 0;
+    transform: scale(0.1);
+  }
+  55% {
+    opacity: 0;
+    transform: scale(0.2);
+  }
+  65% {
+    opacity: 1;
+    transform: scale(2);
+  }
+  85% {
+    opacity: 1;
+    transform: scale(3.5);
+    filter: blur(1px);
+  }
+  100% {
+    opacity: 0.7;
+    transform: scale(1);
+    filter: blur(0);
+  }
+}
+
+@keyframes gui-glow-pulse {
+  0% {
+    opacity: 0;
+    transform: scale(0.2);
+  }
+  60% {
+    opacity: 0.8;
+    transform: scale(1.1);
+  }
+  100% {
+    opacity: 0.6;
+    transform: scale(1);
+  }
+}
+
+@keyframes gui-ring-spin {
+  0% {
+    opacity: 0;
+    transform: scale(0.1) rotate(0deg);
+  }
+  50% {
+    opacity: 0.9;
+    transform: scale(1.1) rotate(45deg);
+  }
+  100% {
+    opacity: 0.75;
+    transform: scale(1) rotate(90deg);
+  }
+}
+
+@keyframes gui-iris-expand {
+  0% {
+    opacity: 0;
+    transform: scale(0.2);
+  }
+  100% {
+    opacity: 0.5;
+    transform: scale(1);
+  }
+}
+
+@keyframes gui-hud-appear {
+  0% {
+    opacity: 0;
+    transform: translateY(14px) scale(0.96);
+    filter: blur(6px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+    filter: blur(0);
+  }
+}
+
+@keyframes gui-progress-fill {
+  0% {
+    width: 0%;
+  }
+  100% {
+    width: 100%;
+  }
+}
+
+@keyframes gui-dot-ping {
+  0% {
+    transform: scale(0.8);
+    opacity: 0.9;
+  }
+  100% {
+    transform: scale(2.2);
+    opacity: 0;
+  }
+}
+
+@keyframes gui-settle-backdrop {
+  0% {
+    opacity: 1;
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+  }
+  100% {
+    opacity: 0;
+    backdrop-filter: blur(0px);
+    -webkit-backdrop-filter: blur(0px);
+    pointer-events: none;
+  }
+}
+
+@keyframes gui-hud-dissolve {
+  0% {
+    opacity: 1;
+    transform: scale(1);
+    filter: blur(0);
+  }
+  100% {
+    opacity: 0;
+    transform: scale(1.05) translateY(-8px);
+    filter: blur(8px);
+  }
+}
+
+@keyframes gui-ring-burst {
+  0% {
+    opacity: 0.75;
+    transform: scale(1) rotate(90deg);
+  }
+  100% {
+    opacity: 0;
+    transform: scale(2.8) rotate(140deg);
+  }
+}
+
+@keyframes gui-glow-burst {
+  0% {
+    opacity: 0.6;
+    transform: scale(1);
+  }
+  100% {
+    opacity: 0;
+    transform: scale(2.2);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .gui-crt-screen,
+  .gui-crt-beam,
+  .gui-phosphor-singularity,
+  .gui-aperture-ring,
+  .gui-hud-card {
+    animation-duration: 0.12s !important;
+  }
+}
