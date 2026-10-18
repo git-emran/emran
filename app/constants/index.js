@@ -534,6 +534,14 @@ const interactionDesignsByCategory = {
     { title: "Custom Dock Animation",       image: "/assets/projects/ipados2.gif" },
   ],
 
+  "Branding & Illustrations": [
+    { title: "Brand Identity", image: "/assets/projects/branding1.png" },
+    { title: "Creative Ad marketing",    image: "/assets/projects/branding2.png" },
+    { title: "Illustration",    image: "/assets/projects/illu1.png" },
+    { title: "Illustration",    image: "/assets/projects/illu2.png" },
+    { title: "Illustration",    image: "/assets/projects/illu3.png" },
+  ],
+
 };
 
 // Helper to resolve high-performance video & poster paths for smooth 60fps rendering

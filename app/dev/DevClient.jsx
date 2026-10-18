@@ -1004,12 +1004,20 @@ function DevWorkspace({ onReturnToIntro }) {
 }
 
 export default function DevClient() {
-  const [entered, setEntered] = React.useState(() => {
+  const [entered, setEntered] = React.useState(false);
+
+  React.useEffect(() => {
     if (typeof window !== "undefined") {
-      return window.location.hash === "#workspace";
+      if (window.location.hash === "#workspace") {
+        setEntered(true);
+      }
+      const handleHashChange = () => {
+        setEntered(window.location.hash === "#workspace");
+      };
+      window.addEventListener("hashchange", handleHashChange);
+      return () => window.removeEventListener("hashchange", handleHashChange);
     }
-    return false;
-  });
+  }, []);
 
   const handleEnter = React.useCallback(() => {
     if (typeof window !== "undefined") {
