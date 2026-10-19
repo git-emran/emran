@@ -61,14 +61,6 @@ export const projects = [
     solutionContent:
       "I helped shape an experience that brought AI writing, keyword research, and SEO insights into one workflow. Features like the Blog Wizard and AI Image Magic let writers move from an idea to a more complete article without leaving the editor.",
 
-    solutionImages: [
-      "/assets/projects/get_genie1.webp",
-      "/assets/projects/genie-1.webp",
-      "/assets/projects/genie_gif.webp",
-      "/assets/projects/genie_2.webp",
-      "/assets/projects/genie-4.webp",
-      "/assets/projects/genie-trust.webp"
-    ],
 
     features: [
       "Blog Wizard: Turn a keyword or topic into an article draft.",
