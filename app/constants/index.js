@@ -1,450 +1,578 @@
 // index.js
 
 export const projects = [
-  {
-    id: 1,
-    name: "GetGenie - AI Content Manager",
-    slug: "get-genie",
-    description:
-      "WordPress Gutenberg based AI Plugin. Perfect for generating SEO optimized content for your websites and Blogs. ",
-    href: "/case-study/get-genie",
-    image: "/assets/projects/get_genie1.webp",
-    bgImage: "/assets/backgrounds/blanket.jpg",
-    frameworks: [
-      { id: 1, name: "Web-app" },
-      { id: 2, name: "Next.js" },
-      { id: 3, name: "Node.js" },
-      { id: 4, name: "MongoDB" },
-      { id: 5, name: "Tailwind CSS" },
+{
+  id: 1,
+  name: "GetGenie - AI Content Manager",
+  slug: "get-genie",
+  description:
+    "An AI writing assistant that helps WordPress users create content and improve SEO without leaving the editor.",
+  href: "/case-study/get-genie",
+  image: "/assets/projects/get_genie1.webp",
+  bgImage: "/assets/backgrounds/blanket.jpg",
+  frameworks: [
+    { id: 1, name: "Web-app" },
+    { id: 2, name: "Next.js" },
+    { id: 3, name: "Node.js" },
+    { id: 4, name: "MongoDB" },
+    { id: 5, name: "Tailwind CSS" },
+  ],
+  visitUrl: "https://getgenie.ai",
+
+  caseStudy: {
+    role: "Senior Designer & Frontend Developer",
+    team: "Engineering Lead, CTO, CEO, Senior Designer",
+    techStack: "React, JavaScript, Ant Design",
+
+    overview:
+      "GetGenie helps people write and optimize content with AI. I worked on making that experience feel natural inside WordPress, so writers could research keywords, draft articles, and improve SEO without constantly switching tools.",
+
+    problemTitle: "Writing Content Meant Juggling Too Many Tools",
+    problemContent:
+      "Writers had to jump between AI tools, keyword research, SEO checks, and the WordPress editor just to finish one article. I wanted to bring these steps together in one place without making the writing experience more complicated.",
+
+    problemImages: [
+      "/assets/projects/genie_wireframe.webp"
     ],
-    visitUrl: "https://getgenie.ai",
-    caseStudy: {
-      role: "Sr Designer & Frontend Developer",
-      team: "Engineering Lead, CTO, CEO, Sr Designer",
-      techStack: "React, JavaScript, AntDesign",
-      overview: "GetGenie is an advanced AI-powered writing assistant engineered as a WordPress Gutenberg block plugin. As the Senior Designer and Frontend Developer, my mandate was to design and construct a highly interactive, responsive interface that bridges complex machine learning models directly into the WordPress editor workflow, giving content creators a seamless experience.",
-      problemTitle: "Identifying Gaps in the Crowded AI Content Market",
-      problemContent: "Competitors forced users to constantly copy and paste text between external AI web portals and the WordPress editor. Furthermore, these platforms suffered from linear, static interfaces that lacked real-time SEO insights, had poor mobile usability, and frequently caused block validation crashes inside the Gutenberg environment due to state synchronization conflicts.",
-      problemImages: ["/assets/projects/genie_wireframe.webp"],
-      researchTitle: "Workflow Analysis & Architecture Constraints",
-      researchPhases: [
-        {
-          title: "Analyzing Content Friction Points",
-          content: "We conducted extensive user testing and mapped out the typical writer's workflow. We discovered that switching between multiple keyword planners, SEO audit checkers, and drafting environments reduced productivity by 40 percent. Our goal was to unify these features inside a singular, context-aware sidebar.",
-          image: "/assets/projects/genie-1.webp"
-        },
-        {
-          title: "State Sync & Block Validation Failures",
-          content: "Our technical audit of existing block-editor integrations revealed that heavy React updates inside WordPress frequently locked the main UI thread. When rich text blocks were saved, the background meta data structure drifted from the frontend state, triggering WordPress block validation errors.",
-          image: "/assets/projects/genie_2.webp"
-        },
-        {
-          title: "Cascading API Timeout Crashes",
-          content: "During server load spikes, AI generation API calls frequently timed out. Because the standard Gutenberg block framework was not designed for long-running asynchronous network operations, these unhandled timeouts caused the browser context to crash, wiping out the writer's unsaved local document progress.",
-          image: "/assets/projects/genie-4.webp"
-        },
-        {
-          title: "Environmental Integrity Constraints",
-          content: "Since the plugin operates on self-hosted WordPress environments globally, it had to run smoothly across varying PHP version levels, strict Content Security Policies, and restricted cross-origin permissions that blocked standard API endpoints.",
-          image: "/assets/projects/genie-trust.webp"
-        }
-      ],
-      solutionTitle: "A Unified Interface for SEO & Writing",
-      solutionContent: "We architected a responsive, React-based dashboard embedded directly into the Gutenberg system. By designing the One-Click Blog Wizard, integrating AI Image Magic, and developing competitor head-to-head analysis components, we provided writers with a complete workspace that runs natively within their existing content system.",
-      solutionImages: [ "/assets/projects/get_genie1.webp", "/assets/projects/genie-1.webp", "/assets/projects/genie_gif.webp", "/assets/projects/genie_2.webp", "/assets/projects/genie-4.webp", "/assets/projects/genie-trust.webp" ],
-      features: [
-        "One-Click Blog Wizard: Generates SEO-optimized articles from keyword inputs within 60 seconds.",
-        "AI Image Magic: Delivers high-quality contextual visual assets using simple inline interface commands.",
-        "SERP Visualization: Renders intuitive competitor charts to highlight and bridge critical search gaps."
-      ],
-      improvementSections: [
-        {
-          title: "Decoupling React State from WordPress Engine",
-          content: "To solve the block validation crashes, we decoupled the temporary React sidebar configuration state from the persistent Gutenberg post database. We built a custom state bridge using WordPress data modules, functioning as a unidirectional data store that processes AI generation requests in isolated memory before saving sanitised text to the block parser.",
-          image: "/assets/projects/genie-4.webp"
-        },
-        {
-          title: "High-Performance Data Visualization",
-          content: "The competitor SERP analysis engine required rendering complex charts and graphs. To prevent layout thrashing and UI lag on lower-end devices, we implemented virtualized list rendering, strict component memoization using React.memo, and debounced critical text parsing events to keep main thread execution under 16 milliseconds.",
-          image: "/assets/projects/genie-trust.webp"
-        },
-        {
-          title: "Isolating Network Layers via Error Boundaries",
-          content: "To prevent API timeouts from taking down the editor, we wrapped the AI block configurations in React Error Boundaries and introduced an optimistic draft-saving hook. If a network endpoint fails, the system automatically saves the text state locally and falls back to a clean input form with status warnings instead of breaking the page.",
-          image: "/assets/projects/genie-1.webp"
-        },
-        {
-          title: "Dynamic Proxy & Adaptive Endpoint Routing",
-          content: "We engineered an adaptive client-side transport layer that intercepts outgoing REST API requests. If a cross-origin error or server firewall restriction is detected, the plugin dynamically routes data through a fallback sandboxed proxy on the client side, ensuring a high connection success rate on any host.",
-          image: "/assets/projects/genie_2.webp"
-        }
-      ],
-      resultsTitle: "Efficiency & Performance Scale",
-      resultsMetric: "10X",
-      resultsContent: "Writers reported a 10x increase in speed, cutting typical content production time down from hours to minutes. By optimizing build sizes, applying code-splitting, and tuning render loops, we achieved a clean 90 plus Lighthouse performance score with zero block invalidation crashes in production.",
-    }
-  },
-  {
-    id: 2,
-    name: "FujiFilm Diosynth - Laboratory Dashboard",
-    slug: "fujifilm-dashboard",
-    description:
-      "A Data intensive Dashboard for FujiFilm Biotech Laboratories. A multi-tiered and interactive web app redesigned.",
-    href: "/case-study/fujifilm-dashboard",
-    image: "/assets/projects/project1.webp",
-    bgImage: "/assets/backgrounds/curtains.jpg",
-    frameworks: [
-      { id: 1, name: "Dashboard" },
-      { id: 2, name: "Tailwind CSS" },
-      { id: 3, name: "MongoDB" },
-      { id: 4, name: "oAuth, JWT" },
+
+    researchTitle: "Finding Where the Workflow Broke Down",
+    researchPhases: [
+      {
+        title: "Too Much Switching",
+        content:
+          "Writers were moving between several tools to research, write, and optimize an article. The opportunity was clear: bring the essentials into the WordPress editor.",
+        image: "/assets/projects/genie-1.webp"
+      },
+      {
+        title: "Keeping WordPress in Sync",
+        content:
+          "AI-generated content didn't always play nicely with WordPress blocks. State mismatches could break saved content, so the experience needed a safer way to handle edits and updates.",
+        image: "/assets/projects/genie_2.webp"
+      },
+      {
+        title: "Making AI Failures Less Painful",
+        content:
+          "AI requests could take time or fail altogether. Writers needed clear feedback and a way to recover their work instead of losing progress or facing a broken editor.",
+        image: "/assets/projects/genie-4.webp"
+      }
     ],
-    visitUrl: "https://fujifilmbiotechnologies.fujifilm.com/",
-    caseStudy: {
-      role: "Product Lead (Front-end & Design)",
-      team: "Emran Hossain (Product Lead), CTO, Engineering Lead, Lab Operations Team",
-      techStack: "React, GSAP, Atomic Design (Organisms & Templates), PWA features",
-      problemTitle: "Navigating a Rigid & Fragmented BioTech Landscape",
-      problemContent: "The initial state was a 'mess of interconnected tasks' where data points were haphazardly linked without hierarchy. Scientists and Lab Admins struggled with non-linear information flows and 'tasks within tasks' that made discovering the next logical step a cognitive burden.",
-      solutionTitle: "Atomic Scalability & Thick Data Strategy",
-      solutionContent: "Leveraged 'Thick Data' (qualitative user insights) to shape a personal, intuitive UX. Implemented an Atomic Design System specifically focusing on reusable Organisms and Templates to handle multi-tiered roles (Admin, Scientist, QC, Super Admin). Established a logical data tree to eliminate nested task confusion. Design system with atomic approach, Primarily focusing on building reusable components using the atomic design approach. Doubling down on Organisms and Templates mostly. It was important for Fujifilm to operate while being mobile, So responsiveness, saved sessions, cached data was very much important throughout the process.",
-      solutionImages: ["/assets/projects/before-fuji.webp", "/assets/projects/after-fuji.webp", "/assets/projects/fuji-4.webp", "/assets/projects/fuji-5.webp", "/assets/projects/fuji-6.webp"],
-      features: [
-        "Dynamic Role-Based UI: Tailored dashboards for Admin, Scientist, QC, and Viewers.",
-        "Atomic Organisms: Reusable, complex UI patterns that maintain consistency across workflows.",
-        "Data-Driven Hierarchy: Logical mapping of 'interconnected data' to simplify nested tasks.",
-        "Lab Mobility: PWA-like performance with saved sessions and cached data for on-the-go ops.",
-        "Thick Data UX: Qualitative insights used to make high-tech tools feel 'fun to use'."
-      ],
-      resultsTitle: "The Resulting Transformation",
-      resultsMetric: "70%",
-      resultsContent: "Transformed wireframe chaos into a comprehensive, high-performance dashboard. The final product turned a biotech 'mess' into a system where everything finally 'makes sense', resulting in high user satisfaction and improved operational speed. More importantly onboarding time was reduced by 70%.",
-    }
-  },
-  {
-    id: 3,
-    name: "InsideMaps Capture - Image capture & processing App",
-    slug: "insidemaps-capture",
-    description:
-      "An iOS app to turn your images of your homes into interactive 3D tours. Ideal for Real estate appraisers",
-    href: "/case-study/insidemaps-capture",
-    image: "/assets/projects/Hero-Image-1.webp",
-    bgImage: "/assets/backgrounds/map.jpg",
-    frameworks: [
-      { id: 1, name: "SwiftUI" },
-      { id: 2, name: "iOS-app" },
-      { id: 3, name: "ARkit" },
-      { id: 4, name: "Core ML" },
+
+    solutionTitle: "A Writing Workspace Inside WordPress",
+    solutionContent:
+      "I helped shape an experience that brought AI writing, keyword research, and SEO insights into one workflow. Features like the Blog Wizard and AI Image Magic let writers move from an idea to a more complete article without leaving the editor.",
+
+    solutionImages: [
+      "/assets/projects/get_genie1.webp",
+      "/assets/projects/genie-1.webp",
+      "/assets/projects/genie_gif.webp",
+      "/assets/projects/genie_2.webp",
+      "/assets/projects/genie-4.webp",
+      "/assets/projects/genie-trust.webp"
     ],
-    visitUrl: "https://apps.apple.com/us/app/insidemaps-capture/id1077854108",
-    caseStudy: {
-      role: "Frontend Developer, Product Designer",
-      team: "iOS Team, AR Specialist",
-      techStack: "SwiftUI, ARKit",
-      problemTitle: "Redesigning the Asset Capture Feature",
-      problemContent: "Revenue hits a roadblock when there is a genuine dissatisfaction from customers when using certain services in our application. And that is what happened to us. Our customers were not happy using our feature.",
-      
-      overview: "Insidemaps Capture is feature within the Insidemaps application. It’s main job is to make sure any user can complete the capturing process without any problem. But currently that is not the case, it is somewhat hard to navigate around the whole system.",
-      
-      researchTitle: "Quantitative & Qualitative Research",
-      researchPhases: [
-        {
-          title: "Quantitative Research — Phase 1",
-          content: "Initial phase was divided into two parts. Part 1 was mostly quantitative analysis where I interviewed a group of 20 people. Questions were carefully crafted to generate relevant data.",
-          image: "/assets/projects/Hero-Image-1.webp"
-        },
-        {
-          title: "Big Data Analysis",
-          content: "Deep dive into usage patterns and large scale user behavior to identify technical bottlenecks in the capture process.",
-          image: "/assets/projects/im-1.webp"
-        },
-        {
-          title: "Qualitative Research — Phase 2",
-          content: "In-depth user interviews and direct observation of the capture flow to understand the emotional friction points.",
-          image: "/assets/projects/im-3.webp"
-        }
-      ],
 
-      solutionTitle: "Final Improvements",
-      solutionContent: "These are the improvements I made after taking all the research into account.",
-      solutionImages: ["/assets/projects/im-2.webp"],
-      
-      improvementSections: [
-        {
-          title: "Reducing Scanning Time",
-          content: "Optimized the AR tracking and image processing pipeline to reduce the time needed for a full room scan.",
-          image: "/assets/projects/im-4.webp"
-        },
-        {
-          title: "Improving Picture Quality",
-          content: "Implemented HDR enhancement and better auto-focus algorithms for sharper, more reliable assets.",
-          image: "/assets/projects/im-5.webp"
-        },
-        {
-          title: "Updated Reusable Components",
-          content: "Redesigning the components library to fit the improved design and interaction.",
-          image: "/assets/projects/im-6.webp"
-        }
-      ],
-
-      resultsTitle: "The Resulting Transformation",
-      resultsMetric: "91%",
-      resultsContent: "Successfully improved user satisfaction scores and reduced session abandonment rates.",
-      resultsImages: ["/assets/projects/im-7.webp", "/assets/projects/im-8.webp"]
-    }
-  },
-  {
-    id: 4,
-    name: "MatchTrack - Team management App",
-    slug: "match-track",
-    description: "React Native mobile application for Tennis Coaches.",
-    href: "/case-study/match-track",
-    image: "/assets/projects/project3.webp",
-    bgImage: "/assets/backgrounds/poster.jpg",
-    frameworks: [
-      { id: 1, name: "Mobile-App" },
-      { id: 2, name: "Tailwind CSS" },
-      { id: 3, name: "Firebase" },
-      { id: 4, name: "SQLite" },
+    features: [
+      "Blog Wizard: Turn a keyword or topic into an article draft.",
+      "AI Image Magic: Create visuals to complement written content.",
+      "SERP Analysis: Compare competing pages to spot SEO opportunities."
     ],
-    visitUrl: "https://apps.apple.com/sg/app/matchtrack-tennis-score-keeper/id977481057",
-    caseStudy: {
-      role: "Lead Mobile Developer",
-      team: "Mobile Designer, Backend Dev",
-      techStack: "React Native, Firebase",
-      problemTitle: "Designing a mobile app for the Sports Management Industry",
-      problemContent: "A client wants to develop a SaaS app to manage professional Tennis athletes, track equipment, and monitor performance, improving team efficiency, specially in Denmark. The sports management software market is growing rapidly, valued at $5.96 billion in 2021 and projected to reach $24.09 bill ion by 2031, with a 15.1% CAGR.",
-      overview: "A client wants to develop a SaaS app to manage professional Tennis athletes, track equipment, and monitor performance, improving team efficiency , specially in Denmark. The sports management software market is growing rapidly, valued at $5.96 billion in 2021 and projected to reach $24.09 billion by 2031, with a 15.1% CAGR. We aim to launch the product with a few unique selling point.",
-      
-      researchTitle: "Use cases are everything",
-      researchPhases: [
-        {
-          title: "Started from an Excel sheet",
-          content: "From an Excel sheet to the ideation stage, the idea was simple, driven by our belief in product-led growth. Our focus was on addressing the most critical use cases while ensuring the application remained intuitive to manage.",
-          image: "/assets/projects/mt-1.webp"
-        },
-        {
-          title: "User Interviews — Identifying use cases",
-          content: "It is often fun and games when ideating but real challenge comes along when its time to put priority on things. So the question remains, where do we start from? I did some user interviews and came up with critical use cases. And that was the plan, to start with use cases and solve one high priority problem at a time.",
-          image: "/assets/projects/mt-2.webp"
-        }
-      ],
 
-      solutionTitle: "Taking Initiative",
-      solutionContent: "Started with the prototype to focus on perfect navigation. Bringing in user insights early on.",
-      solutionImages: ["/assets/projects/mt-3.webp"],
-      
-      improvementSections: [
-        {
-          title: "Easy to understand Navigation",
-          content: "Clear navigation is essential for moving between tasks and getting things done quicker. I have iterated twice on this to find the perfect balance.",
-          image: "/assets/projects/mt-4.webp"
-        },
-        {
-          title: "Simplified user-flows",
-          content: "Making sure critical sections are handled within 2–3 steps to reduce cognitive load. For example: in-app shopping experience is like a 3 step process. Easy to handle, faster checkouts.",
-          image: "/assets/projects/mt-5.webp"
-        },
-        {
-          title: "Easy Report",
-          content: "Track and Generate Report to manage better.",
-          image: "/assets/projects/mt-6.webp"
-        }
-      ],
-
-      resultsTitle: "Retrospective",
-      // resultsMetric: "100%",
-      resultsContent: "After the launch, we were very happy with the market response and the praises. Since this is a SaaS, we quickly iterated one last time to make sure it was perfectly scalable.",
-      resultsImages: ["/assets/projects/mt-7.webp"]
-    }
-  },
-  {
-    id: 5,
-    name: "The Office Outlet - E-Commerce",
-    slug: "office-outlet",
-    description: "A web app to decorate and buy your next workstation ",
-    href: "/case-study/office-outlet",
-    image: "/assets/projects/office1.webp",
-    bgImage: "/assets/backgrounds/table.jpg",
-    frameworks: [
-      { id: 1, name: "Web-app" },
-      { id: 2, name: "Firebase" },
-      { id: 3, name: "GraphQL" },
-      { id: 4, name: "Material UI" },
+    improvementSections: [
+      {
+        title: "Keeping Content Safe",
+        content:
+          "I worked on separating temporary AI settings from saved WordPress content. This helped prevent editing conflicts and made it safer to move generated text into the editor.",
+        image: "/assets/projects/genie-4.webp"
+      },
+      {
+        title: "Making Complex Screens Easier to Use",
+        content:
+          "SEO analysis could make the interface feel heavy. I optimized rendering and reduced unnecessary updates to keep the experience responsive, even when displaying more data.",
+        image: "/assets/projects/genie-trust.webp"
+      },
+      {
+        title: "Handling Failed Requests Gracefully",
+        content:
+          "Instead of leaving writers stuck when an AI request failed, I improved error handling and recovery states so they could understand what went wrong and continue working.",
+        image: "/assets/projects/genie-1.webp"
+      },
+      {
+        title: "Working Across Different WordPress Setups",
+        content:
+          "WordPress sites vary in configuration and security restrictions. I worked on handling connection issues more gracefully so the plugin could behave more reliably across different environments.",
+        image: "/assets/projects/genie_2.webp"
+      }
     ],
-    visitUrl: "https://thetotaloffice.com/",
-    caseStudy: {
-      role: "Sr Designer/Researcher/Front-end Engineer",
-      team: "Engineering Lead, CEO, Sr Designer/Researcher/Front-end Engineer (me)",
-      techStack: "Next.js, GraphQL, Firebase",
-      problemTitle: "Why we started This project",
-      problemContent: "The current enterprise or personal Workstation space planning and interior design process in the UAE demographic is time-consuming, lacking visualization capabilities, and often leads to costly mistakes and waste. Users struggle to visualize and experiment with different design options, resulting in dissatisfaction after physical implementation. We saw the gap.",
-      overview: "The Task was to create a web application that will help people drag and drop workstation items such as table, chairs etc to create a virtual workstation and then order that station just like what you created. Timeline was 6 months, but under my supervision and influence it was done within 5.",
-      
-      researchTitle: "Asking the right questions - Before Starting",
-      researchPhases: [
-        {
-          title: "Strategic Q&A Session",
-          content: "I make sure that I do not ask wrong questions as time is much valuable in a development lifecycle. For example: I try not to focus on the big picture on the first phase of the design process, I care about individual success of my component and features. So I created this Q&A session to strategically ask question to find smaller to bigger size bottlenecks.",
-          image: "/assets/projects/office-1.webp"
-        }
-      ],
 
-      solutionTitle: "Wire-framing, Designing & Testing",
-      solutionContent: "Following a linear process was not feasible for us. So I did all of those things at the same time. I call it Iteration on the Go! I started with this style of wireframes and prototyped them fast to make sure every component has a purpose and the navigation flow makes sense.",
-      solutionImages: ["/assets/projects/office-2.webp"],
-      
-      improvementSections: [
-        {
-          title: "Building out the components",
-          content: "Following the Atomic Design Principle I start with the small stuff and build outward. Since this is a product that will be used by non technical people, design decision matters for maximum conversion.",
-          image: "/assets/projects/office-3.webp"
-        },
-        {
-          title: "Polishing the Design, UX and Usability",
-          content: "At this point branding, color theory, text readability, touch target, hover animations, interaction design principles are introduced to ensure a smooth user experience.",
-          image: "/assets/projects/office-4.webp"
-        }
-      ],
+    resultsTitle: "Less Friction, Faster Writing",
+    resultsMetric: "10×",
+    resultsContent:
+      "The goal was to help writers spend less time switching tools and more time creating. The project reported up to 10× faster content production, alongside performance improvements and fewer WordPress block issues."
+  }
+},
 
-      resultsTitle: "Final Design",
-      resultsMetric: "60%",
-      resultsContent: "Final output was satisfactory because 60% user conversion rate during Q1 was outstanding result we never hoped for. Everyone who visited the website ended up ordering from the website. Initial launch was only inside Dubai. Later we expanded to the UAE region.",
-      resultsImages: ["/assets/projects/office-5.webp"]
-    }
-  },
-  {
-    id: 6,
-    name: "InsideMaps Website - UX Redesign",
-    slug: "insidemaps-redesign",
-    description: "An experience redesign of a Legacy website",
-    href: "/case-study/insidemaps-redesign",
-    image: "/assets/projects/redesign1.webp",
-    bgImage: "/assets/backgrounds/curtains.jpg",
-    frameworks: [
-      { id: 1, name: "Website" },
-      { id: 2, name: "Node.js" },
-      { id: 3, name: "MongoDB" },
-      { id: 4, name: "Chakra UI" },
+{
+  id: 2,
+  name: "FujiFilm Diosynth - Laboratory Dashboard",
+  slug: "fujifilm-dashboard",
+  description:
+    "A multi-role laboratory dashboard redesigned to make complex data and workflows easier to navigate.",
+  href: "/case-study/fujifilm-dashboard",
+  image: "/assets/projects/project1.webp",
+  bgImage: "/assets/backgrounds/curtains.jpg",
+  frameworks: [
+    { id: 1, name: "Dashboard" },
+    { id: 2, name: "Tailwind CSS" },
+    { id: 3, name: "MongoDB" },
+    { id: 4, name: "OAuth, JWT" },
+  ],
+  visitUrl: "https://fujifilmbiotechnologies.fujifilm.com/",
+
+  caseStudy: {
+    role: "Product Lead — Design & Frontend",
+    team: "CTO, Engineering Lead, Lab Operations Team",
+    techStack: "React, GSAP, Atomic Design, PWA Features",
+
+    problemTitle: "Too Much Data, No Clear Path",
+    problemContent:
+      "The dashboard connected a lot of information, but it wasn't always clear how everything fit together. Scientists and lab administrators had to navigate nested tasks and disconnected workflows just to figure out what to do next. I led the redesign to make the experience more structured, predictable, and easier to use.",
+
+    solutionTitle: "One System, Built for Different Lab Roles",
+    solutionContent:
+      "I worked with engineering and lab operations to rethink how information and tasks were organized. We built a reusable design system that could support different roles without creating a separate experience for each one. Since lab work doesn't always happen at a desk, we also prioritized responsive layouts, saved sessions, and cached data for more reliable access on the go.",
+
+    solutionImages: [
+      "/assets/projects/before-fuji.webp",
+      "/assets/projects/after-fuji.webp",
+      "/assets/projects/fuji-4.webp",
+      "/assets/projects/fuji-5.webp",
+      "/assets/projects/fuji-6.webp"
     ],
-    visitUrl: "https://www.insidemaps.com/",
-    caseStudy: {
-      role: "Lead Designer",
-      team: "Lead Designer (me), CTO, Engineering Lead, Product Owner, 3 Jr Designers",
-      techStack: "React, Chakra UI, Node.js",
-      problemTitle: "Internal Usability Tests & Sitemap Redesign",
-      problemContent: "The internal usability tests revealed several red flags, most notably with the existing Sitemap. The navigation flow was hindering the experience for newcomers, with disconnected information and confusing redirection.",
-      overview: "As a lead Product designer, I was responsible for recreating the website navigation and improving the user conversion rate using a 5-phase approach: Discovery, Validate, Research, Design, Prototype/Validate, and Development.",
-      
-      researchTitle: "Discovery & Sitemap Strategy",
-      researchPhases: [
-        {
-          title: "Internal Usability Testing",
-          content: "A part of the Discovery phase for our focused team. We used internal validation before going to users to identify early structural issues.",
-          image: "/assets/projects/im-web-1.webp"
-        },
-        {
-          title: "Reimagining The Sitemap",
-          content: "Moved from a fragmented '10,000 ft view' to a centralized information hub. Clear navigation flow: knowledge, resource, and pricing accessible directly from the start.",
-          image: "/assets/projects/im-web-2.webp"
-        }
-      ],
 
-      solutionTitle: "Interface & Layout Iteration",
-      solutionContent: "Following a trail-and-error process where the first layout attempt didn't meet expectations, leading to a successful 'Take 2' using wire-frame prototypes and A/B testing with users.",
-      solutionImages: ["/assets/projects/im-web-3.webp"],
-      
-      improvementSections: [
-        {
-          title: "A/B Testing & Take 2",
-          content: "Second attempt tested at the root level with clickable wire-frame prototypes to ensure the navigation flow and user journey felt natural.",
-          image: "/assets/projects/im-web-4.webp"
-        },
-        {
-          title: "Responsiveness & Accessibility",
-          content: "Implemented Aria attributes, keyboard navigation, color theory, and enhanced touch targets to ensure a seamless experience for everyone.",
-          image: "/assets/projects/im-web-5.webp"
-        },
-        {
-          title: "Atomic Design Implementation",
-          content: "Built the UI from the ground up using atomic design principles: atoms (design tokens), molecules (patterns), organisms (modules), and finally templates and pages.",
-          image: "/assets/projects/im-web-6.webp"
-        }
-      ],
-
-      resultsTitle: "Impact & Results",
-      resultsMetric: "80%",
-      resultsContent: "User conversion and app downloads both increased by 80%. Specifically, 8 out of 10 visitors signed up, with 85% becoming long-term users—a testament to the cohesive experience between the website and the app I also designed.",
-      resultsImages: ["/assets/projects/im-web-7.webp", "/assets/projects/im-web-8.webp", "/assets/projects/im-web-9.webp"]
-    }
-  },
-  {
-    id: 7,
-    name: "Writer - Markdown Text Editor with Vim Motions ",
-    slug: "writer-app",
-    description:
-      "A Markdown text editor that is powered by vim mitions, has built-in LSP for 10+ languages including Rust, Go, C++ and Java",
-    href: "/case-study/writer-app",
-    image: "/assets/projects/emran_project_writer.webp",
-    bgImage: "/assets/backgrounds/blanket.jpg",
-    frameworks: [
-      { id: 1, name: "React" },
-      { id: 2, name: "desktop-app" },
-      { id: 3, name: "Electron" },
-      { id: 4, name: "Codemirror6" },
-      { id: 5, name: "Typescript" },
+    features: [
+      "Role-Based Dashboards: Relevant views and actions for admins, scientists, QC teams, and other users.",
+      "Reusable Design System: Shared components that kept complex workflows consistent and easier to extend.",
+      "Clearer Task Hierarchy: Better-organized information made nested tasks easier to understand and navigate.",
+      "Mobile-Ready Workflows: Responsive screens, saved sessions, and cached data supported work beyond the desktop."
     ],
-    visitUrl: "https://github.com/git-emran/simple-notes",
-    caseStudy: {
-      role: "Solo Developer",
-      team: "Solo Developer (Emran Hossain)",
-      techStack: "Electron, React, CodeMirror 6, OpenAI API, MermaidJS",
-      problemTitle: "The Need for a Fluid, Vim-Powered Markdown Experience",
-      problemContent: "As a developer and Vim enthusiast, I found that existing markdown editors often lacked the fluidity of Vim motions combined with modern IDE features like LSP and AI assistance. Most tools were either too heavy or too limited for quick 'brain dumps' and disposable work.",
-      overview: "Writer is a professional macOS desktop markdown application built for Vim enthusiasts. It bridges the gap between simple note-taking and high-level coding documentation, featuring a built-in LSP for 10+ languages, interactive canvas for diagrams, and AI-powered content generation.",
-      
-      researchTitle: "Product Vision & Developer Experience",
-      researchPhases: [
-        {
-          title: "The Minimalist Developer Workflow",
-          content: "Focusing on the core needs of a developer: fast syntax highlighting, Vim-native interactions, and a non-clunky interface for disposable notes and leetcode practice.",
-          image: "/assets/projects/writer-4.webp"
-        },
-        {
-          title: "Expanding the Ecosystem (v2.02)",
-          content: "Identifying the need for integrated Terminal, Task management and Visualization, leading to the addition of Kanban boards and the interactive Canvas system.",
-          image: "/assets/projects/terminal.webp"
-        }
-      ],
 
-      solutionTitle: "A Comprehensive Markdown Editor",
-      solutionContent: "Developed a high-performance desktop application using Electron and CodeMirror 6, integrating specialized features like a context based AI writer, MermaidJS rendering, and a real-time progress tracking system.",
-      solutionImages: ["/assets/projects/emran_project_writer.webp"],
-      
-      improvementSections: [
-        {
-          title: "Interactive Canvas & Visual Thinking",
-          content: "Introduced an interactive environment to create flowcharts and diagrams, with the ability to export directly to PDF for documentation.",
-          image: "https://github.com/user-attachments/assets/0fa0e1c1-89e4-4da1-8f6e-9150e95c5f55"
-        },
-        {
-          title: "Task Management & Organization",
-          content: "Built an integrated Kanban board and automated 'Daily Note' system, complemented by custom note statuses and specialized progress bars for checkbox lists.",
-          image: "/assets/projects/writer-5.gif"
-        },
-        {
-          title: "AI & LSP Integration",
-          content: "Implemented 'Write with AI' powered by Open-router models and a full LSP suite for code completions and syntax diagnostics across multiple languages.",
-          image: "/assets/projects/writer-ai.gif"
-        }
-      ],
+    resultsTitle: "A Clearer Way to Work",
+    resultsMetric: "70%",
+    resultsContent:
+      "The redesigned dashboard made complex workflows easier to follow and helped new users get up to speed faster. Onboarding time was reduced by 70%, turning a fragmented experience into a more consistent system for day-to-day lab work."
+  }
+},
+{
+  id: 3,
+  name: "InsideMaps Capture - Image Capture & Processing App",
+  slug: "insidemaps-capture",
+  description:
+    "Helping real estate professionals turn property scans into interactive 3D tours.",
+  href: "/case-study/insidemaps-capture",
+  image: "/assets/projects/Hero-Image-1.webp",
+  bgImage: "/assets/backgrounds/map.jpg",
+  frameworks: [
+    { id: 1, name: "SwiftUI" },
+    { id: 2, name: "iOS App" },
+    { id: 3, name: "ARKit" },
+    { id: 4, name: "Core ML" },
+  ],
+  visitUrl: "https://apps.apple.com/us/app/insidemaps-capture/id1077854108",
 
-      resultsTitle: "Community Response & Evolution",
-      resultsMetric: "v2.02",
-      resultsContent: "Successfully delivered a redesigned UI that balances aesthetics with functionality. High performance was achieved through memoization and filetree state persistence, making it a reliable daily tool for developers globally.",
-      resultsImages: ["/assets/projects/writer-final.webp"]
-    }
-  },
+  caseStudy: {
+    role: "Product Designer & Frontend Developer",
+    team: "iOS Team, AR Specialist",
+    techStack: "SwiftUI, ARKit",
+
+    overview:
+      "A great 3D tour starts long before the tour itself. InsideMaps Capture helps real estate professionals scan properties and turn them into immersive experiences. But when capturing a space felt difficult, the value of the finished product was harder to reach. I worked on making that first step simpler.",
+
+    problemTitle: "The Hardest Part Was Getting Started",
+    problemContent:
+      "Users came to capture a property, not figure out the interface. Friction in the scanning flow and concerns about image quality made the experience harder than it needed to be. I focused on understanding where users struggled and what would help them complete a capture with confidence.",
+
+    researchTitle: "Understanding the Friction",
+    researchPhases: [
+      {
+        title: "Listen to Users",
+        content:
+          "I interviewed 20 users to understand their frustrations, expectations, and difficulties during property capture.",
+        image: "/assets/projects/Hero-Image-1.webp"
+      },
+      {
+        title: "Follow the Workflow",
+        content:
+          "I examined usage patterns and the capture journey to identify where users encountered friction and where the interface needed clearer guidance.",
+        image: "/assets/projects/im-1.webp"
+      },
+      {
+        title: "Prioritize What Matters",
+        content:
+          "I brought the findings together to focus on three areas: a smoother scanning flow, more reliable image capture, and clearer interactions.",
+        image: "/assets/projects/im-3.webp"
+      }
+    ],
+
+    solutionTitle: "Make Capture Feel Natural",
+    solutionContent:
+      "Rather than adding more features, I focused on removing friction from the ones users already depended on. I refined the capture experience, improved interface consistency, and worked with the iOS team on a smoother path from scanning a property to producing usable imagery.",
+
+    solutionImages: [
+      "/assets/projects/im-2.webp"
+    ],
+
+    improvementSections: [
+      {
+        title: "Guide the Capture",
+        content:
+          "I refined the scanning experience to make interactions clearer and help users move through the process with less uncertainty.",
+        image: "/assets/projects/im-4.webp"
+      },
+      {
+        title: "Get the Image Right",
+        content:
+          "I focused on the image capture experience, working toward clearer, more reliable imagery for the final 3D tour.",
+        image: "/assets/projects/im-5.webp"
+      },
+      {
+        title: "Create a Consistent Experience",
+        content:
+          "I redesigned reusable UI components to make interactions more predictable and the overall interface easier to navigate.",
+        image: "/assets/projects/im-6.webp"
+      }
+    ],
+
+    resultsTitle: "A Better First Step to Every 3D Tour",
+    resultsMetric: "91%",
+    resultsContent:
+      "The project reported a 91% user satisfaction result, alongside reduced session abandonment. The focus was simple: help users spend less effort figuring out the capture process and more effort getting the property captured.",
+    resultsImages: [
+      "/assets/projects/im-7.webp",
+      "/assets/projects/im-8.webp"
+    ]
+  }
+},
+{
+  id: 4,
+  name: "MatchTrack - Team Management App",
+  slug: "match-track",
+  description:
+    "A mobile app that helps tennis coaches manage players, equipment, and team operations.",
+  href: "/case-study/match-track",
+  image: "/assets/projects/project3.webp",
+  bgImage: "/assets/backgrounds/poster.jpg",
+  frameworks: [
+    { id: 1, name: "Mobile App" },
+    { id: 2, name: "Tailwind CSS" },
+    { id: 3, name: "Firebase" },
+    { id: 4, name: "SQLite" },
+  ],
+  visitUrl: "https://apps.apple.com/sg/app/matchtrack-tennis-score-keeper/id977481057",
+
+  caseStudy: {
+    role: "Lead Mobile Developer",
+    team: "Mobile Designer, Backend Developer",
+    techStack: "React Native, Firebase",
+
+    overview:
+      "MatchTrack started with a simple idea: give tennis coaches one place to manage the moving parts of their teams. I led mobile development, helping turn an early concept into an app built around the tasks coaches needed to get done.",
+
+    problemTitle: "From Spreadsheets to a Real Workflow",
+    problemContent:
+      "Managing players, equipment, and performance meant keeping track of too many moving parts. The challenge wasn't simply putting everything into an app. It was figuring out which tasks mattered most and making them easy to complete on the go.",
+
+    researchTitle: "Start With What Coaches Actually Need",
+    researchPhases: [
+      {
+        title: "From Spreadsheet to Product",
+        content:
+          "We started with an Excel sheet and a broad product idea. I helped move the conversation toward real coaching tasks instead of building features just because we could.",
+        image: "/assets/projects/mt-1.webp"
+      },
+      {
+        title: "Prioritize the Essentials",
+        content:
+          "Through user interviews, we identified the most important use cases and used them to guide what we built first. The goal was to solve high-priority problems before adding more complexity.",
+        image: "/assets/projects/mt-2.webp"
+      }
+    ],
+
+    solutionTitle: "Make Everyday Tasks Easier",
+    solutionContent:
+      "I took the lead on mobile development, using prototypes and early feedback to refine navigation and simplify key workflows. We focused on helping coaches reach the right task quickly, without having to work through unnecessary steps.",
+
+    solutionImages: [
+      "/assets/projects/mt-3.webp"
+    ],
+
+    improvementSections: [
+      {
+        title: "Navigation That Makes Sense",
+        content:
+          "I iterated on the navigation twice to make key sections easier to find and move between, keeping the experience straightforward as features grew.",
+        image: "/assets/projects/mt-4.webp"
+      },
+      {
+        title: "Fewer Steps, Less Friction",
+        content:
+          "I streamlined important user flows, including in-app shopping, to keep common tasks short and easy to complete.",
+        image: "/assets/projects/mt-5.webp"
+      },
+      {
+        title: "Reports Coaches Can Use",
+        content:
+          "We included reporting features to help coaches review relevant information and manage their teams with a clearer picture of activity.",
+        image: "/assets/projects/mt-6.webp"
+      }
+    ],
+
+    resultsTitle: "A Stronger Foundation to Build On",
+    resultsContent:
+      "Following launch, we received positive market feedback and continued refining the product. The experience gave us a clearer foundation for future improvements as MatchTrack evolved.",
+    resultsImages: [
+      "/assets/projects/mt-7.webp"
+    ]
+  }
+},
+{
+  id: 5,
+  name: "The Office Outlet - E-Commerce",
+  slug: "office-outlet",
+  description:
+    "An interactive shopping experience that lets customers design their workstation and buy it online.",
+  href: "/case-study/office-outlet",
+  image: "/assets/projects/office1.webp",
+  bgImage: "/assets/backgrounds/table.jpg",
+  frameworks: [
+    { id: 1, name: "Web App" },
+    { id: 2, name: "Firebase" },
+    { id: 3, name: "GraphQL" },
+    { id: 4, name: "Material UI" },
+  ],
+  visitUrl: "https://thetotaloffice.com/",
+
+  caseStudy: {
+    role: "Senior Designer, Researcher & Frontend Engineer",
+    team: "Engineering Lead, CEO",
+    techStack: "Next.js, GraphQL, Firebase",
+
+    overview:
+      "Buying office furniture often means imagining how individual pieces will look together and hoping they work in your space. I led the design and frontend development of an experience that let customers build their workstation virtually and purchase the setup they created.",
+
+    problemTitle: "You Shouldn't Have to Guess Before You Buy",
+    problemContent:
+      "Customers had limited ways to experiment with workstation layouts before committing to a purchase. We saw an opportunity to make furniture shopping more visual and interactive, helping people explore combinations and make decisions with greater confidence.",
+
+    researchTitle: "Ask Better Questions, Build the Right Thing",
+    researchPhases: [
+      {
+        title: "Find the Real Friction",
+        content:
+          "Before designing screens, I broke the shopping journey into smaller questions: Where do customers hesitate? What do they need to see before buying? Which interactions would make choosing a workstation easier?",
+        image: "/assets/projects/office-1.webp"
+      }
+    ],
+
+    solutionTitle: "From Browsing to Building",
+    solutionContent:
+      "I used rapid wireframes and prototypes to test ideas while the product was taking shape. This iterative approach helped us refine the layout, navigation, and core interactions without waiting for each design phase to finish before moving to the next.",
+
+    solutionImages: [
+      "/assets/projects/office-2.webp"
+    ],
+
+    improvementSections: [
+      {
+        title: "Build From the Basics",
+        content:
+          "I developed a reusable component system, building from simple elements into larger interface patterns. This kept the experience consistent while giving us room to evolve the product.",
+        image: "/assets/projects/office-3.webp"
+      },
+      {
+        title: "Make Shopping Feel Intuitive",
+        content:
+          "I refined visual hierarchy, typography, interactive states, and usability details to make the experience approachable for customers with no design or technical background.",
+        image: "/assets/projects/office-4.webp"
+      }
+    ],
+
+    resultsTitle: "From Concept to Launch in Five Months",
+    resultsMetric: "5 Months",
+    resultsContent:
+      "The project launched in Dubai within five months, ahead of the original six-month timeline. Early results were encouraging, with a reported 60% conversion rate in Q1. The initial launch gave the business a foundation to expand its reach across the UAE.",
+    resultsImages: [
+      "/assets/projects/office-5.webp"
+    ]
+  }
+},
+{
+  id: 6,
+  name: "InsideMaps Website - UX Redesign",
+  slug: "insidemaps-redesign",
+  description:
+    "A UX redesign that made a legacy website easier to navigate and the product easier to discover.",
+  href: "/case-study/insidemaps-redesign",
+  image: "/assets/projects/redesign1.webp",
+  bgImage: "/assets/backgrounds/curtains.jpg",
+  frameworks: [
+    { id: 1, name: "Website" },
+    { id: 2, name: "Node.js" },
+    { id: 3, name: "MongoDB" },
+    { id: 4, name: "Chakra UI" },
+  ],
+  visitUrl: "https://www.insidemaps.com/",
+
+  caseStudy: {
+    role: "Lead Product Designer",
+    team: "CTO, Engineering Lead, Product Owner, 3 Junior Designers",
+    techStack: "React, Chakra UI, Node.js",
+
+    overview:
+      "InsideMaps had a product worth discovering, but its website made that harder than it should have been. I led the redesign to help visitors understand what the product offered, find the right information, and move naturally toward signing up.",
+
+    problemTitle: "The Website Was Getting in the Way",
+    problemContent:
+      "Internal usability tests exposed a recurring problem: visitors struggled to navigate the site. Important information felt disconnected, and unclear paths made it difficult for newcomers to know where to go next. I saw an opportunity to fix the experience at its foundation, starting with the sitemap.",
+
+    researchTitle: "Fix the Structure Before the Screens",
+    researchPhases: [
+      {
+        title: "Find the Friction",
+        content:
+          "I led an initial round of internal usability testing to identify confusing navigation patterns and gaps in the existing information architecture.",
+        image: "/assets/projects/im-web-1.webp"
+      },
+      {
+        title: "Rethink the Sitemap",
+        content:
+          "I reorganized the site's structure around what visitors needed to find, making product information, resources, and pricing easier to discover.",
+        image: "/assets/projects/im-web-2.webp"
+      }
+    ],
+
+    solutionTitle: "The First Design Wasn't the Final One",
+    solutionContent:
+      "Our initial layout wasn't working well enough. Rather than polishing the wrong direction, I returned to wireframes, built clickable prototypes, and used user testing to validate a second approach before moving into development.",
+
+    solutionImages: [
+      "/assets/projects/im-web-3.webp"
+    ],
+
+    improvementSections: [
+      {
+        title: "Test the Journey, Not Just the UI",
+        content:
+          "I tested the revised navigation with clickable wireframes, using feedback to refine how visitors moved between key pages and toward signup.",
+        image: "/assets/projects/im-web-4.webp"
+      },
+      {
+        title: "Make the Experience Work for More People",
+        content:
+          "I considered keyboard navigation, accessible labels, color contrast, and touch targets to make the redesigned site easier to use across devices and abilities.",
+        image: "/assets/projects/im-web-5.webp"
+      },
+      {
+        title: "Build a System, Not Just Pages",
+        content:
+          "I established a reusable design system using atomic design principles, helping the team build consistent interfaces and extend the experience more efficiently.",
+        image: "/assets/projects/im-web-6.webp"
+      }
+    ],
+
+    resultsTitle: "A Clearer Path From Visit to Signup",
+    resultsMetric: "80%",
+    resultsContent:
+      "The project reported an 80% increase in user conversion and app downloads. The redesign aimed to connect the website and app into a more cohesive journey, helping visitors move from discovering InsideMaps to trying the product.",
+    resultsImages: [
+      "/assets/projects/im-web-7.webp",
+      "/assets/projects/im-web-8.webp",
+      "/assets/projects/im-web-9.webp"
+    ]
+  }
+},
+{
+  id: 7,
+  name: "Writer - Markdown Editor with Vim Motions",
+  slug: "writer-app",
+  description:
+    "A developer-focused Markdown editor combining Vim motions, language intelligence, and lightweight productivity tools.",
+  href: "/case-study/writer-app",
+  image: "/assets/projects/emran_project_writer.webp",
+  bgImage: "/assets/backgrounds/blanket.jpg",
+  frameworks: [
+    { id: 1, name: "React" },
+    { id: 2, name: "Desktop App" },
+    { id: 3, name: "Electron" },
+    { id: 4, name: "CodeMirror 6" },
+    { id: 5, name: "TypeScript" },
+  ],
+  visitUrl: "https://github.com/git-emran/simple-notes",
+
+  caseStudy: {
+    role: "Solo Developer",
+    team: "Designed and built independently",
+    techStack: "Electron, React, CodeMirror 6, TypeScript, OpenAI API, Mermaid.js",
+
+    overview:
+      "I wanted a writing environment that felt as natural as Vim but offered more than a plain text editor. So I built Writer: a desktop Markdown editor that brings together focused writing, code intelligence, diagrams, and lightweight task management.",
+
+    problemTitle: "I Wanted to Write Without Breaking My Flow",
+    problemContent:
+      "My workflow often jumped between notes, code editors, terminals, and planning tools. Existing Markdown editors didn't give me the Vim-driven editing and developer features I wanted in one focused space. Instead of accepting the trade-offs, I decided to build my own.",
+
+    researchTitle: "Start Small, Follow the Workflow",
+    researchPhases: [
+      {
+        title: "Get the Writing Experience Right",
+        content:
+          "I started with the essentials: Vim motions, fast editing, syntax highlighting, and a clean interface for notes, coding practice, and everyday thinking.",
+        image: "/assets/projects/writer-4.webp"
+      },
+      {
+        title: "Grow Beyond Notes",
+        content:
+          "As the project evolved, I explored what else belonged in the same workflow. A terminal, task boards, daily notes, and visual diagrams gradually turned Writer into a broader developer workspace.",
+        image: "/assets/projects/terminal.webp"
+      }
+    ],
+
+    solutionTitle: "One Workspace, Fewer Context Switches",
+    solutionContent:
+      "I built Writer as a desktop app with Electron, React, and CodeMirror 6. Rather than adding features for their own sake, I focused on bringing common developer workflows closer to where the writing happens.",
+
+    solutionImages: [
+      "/assets/projects/emran_project_writer.webp"
+    ],
+
+    improvementSections: [
+      {
+        title: "Think Visually",
+        content:
+          "I integrated interactive diagrams and flowcharts with Mermaid.js, making it easier to map ideas and include visuals in technical documentation.",
+        image: "https://github.com/user-attachments/assets/0fa0e1c1-89e4-4da1-8f6e-9150e95c5f55"
+      },
+      {
+        title: "Keep Work Organized",
+        content:
+          "I added Kanban boards, daily notes, and task progress indicators so ideas could move from quick notes to organized work without leaving the app.",
+        image: "/assets/projects/writer-5.gif"
+      },
+      {
+        title: "Bring Coding Tools Into Writing",
+        content:
+          "I integrated language-server features for code intelligence across multiple languages and added AI-assisted writing to help with drafting and editing in context.",
+        image: "/assets/projects/writer-ai.gif"
+      }
+    ],
+
+    resultsTitle: "A Personal Tool That Kept Growing",
+    resultsMetric: "v2.02",
+    resultsContent:
+      "Writer evolved from a simple Markdown editor into a multi-purpose workspace for writing, coding, and planning. Building it solo meant owning the entire process, from interface design and editor integration to performance and application state.",
+    resultsImages: [
+      "/assets/projects/writer-final.webp"
+    ]
+  }
+},
 ];
 
 export const testimonials = [
