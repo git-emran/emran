@@ -241,6 +241,32 @@ strong {
   text-decoration-color: #ef4444 !important;
 }
 
+/* Animated underline for all navigation links (internal + social/external) */
+.nav-link-hover,
+.nav-link-hover:hover {
+  text-decoration: none !important;
+  position: relative;
+  display: inline-block;
+}
+
+.nav-link-hover::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -2px;
+  width: 0;
+  height: 2px;
+  background-color: #ef4444;
+  transition: width 0.25s ease;
+}
+
+/* Only enable hover underline animation on desktop devices that support hover (disabled on mobile view) */
+@media (min-width: 768px) and (hover: hover) {
+  .nav-link-hover:hover::after {
+    width: 100%;
+  }
+}
+
 .font-medium {
   font-family: "Die Grotesk", var(--font-geist-sans), ui-sans-serif, system-ui, sans-serif;
   font-weight: 500;
@@ -382,6 +408,7 @@ strong {
 @layer base {
   * {
     @apply border-border outline-ring/50;
+    -webkit-tap-highlight-color: transparent;
   }
   img {
     border-style: none;
@@ -392,5 +419,7 @@ strong {
   }
   html {
     @apply font-sans;
+    scrollbar-gutter: stable;
+    overflow-y: scroll;
   }
 }

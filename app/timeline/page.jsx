@@ -305,46 +305,6 @@ export default function TimelinePage() {
 
   return (
     <main className="tracking-tight md:px-2 md:py-1 px-0 py-1 bg-transparent text-black dark:text-white min-h-screen flex flex-col font-sans">
-      {/* Mobile Top Navigation */}
-      <div className="md:hidden flex flex-row justify-between items-center px-7 pt-4 pb-2 mb-6">
-        <div className="flex flex-row gap-5">
-          <HoverLink
-            preset="work"
-            className="text-lg no-underline hover:underline dark:text-white dark:hover:text-gray-300"
-            href="/"
-          >
-            Work
-          </HoverLink>
-          <HoverLink
-            preset="hero"
-            className="text-lg no-underline hover:underline dark:text-white dark:hover:text-gray-300 font-medium"
-            href="/timeline"
-          >
-            Timeline
-          </HoverLink>
-          <HoverLink
-            preset="about"
-            className="text-lg no-underline hover:underline dark:text-white dark:hover:text-gray-300"
-            href="/about"
-          >
-            About
-          </HoverLink>
-          <HoverLink
-            preset="notes"
-            className="text-lg no-underline hover:underline dark:text-white dark:hover:text-gray-300"
-            href="/notes"
-          >
-            Notes
-          </HoverLink>
-          <HoverLink
-            preset="interactions_nav"
-            className="text-lg no-underline hover:underline dark:text-white dark:hover:text-gray-300"
-            href="/interaction-archive"
-          >
-            Interactions
-          </HoverLink>
-        </div>
-      </div>
 
       {/* Main Content Layout */}
       <div className="bg-transparent text-lg dark:text-white flex-1 w-full">
@@ -427,89 +387,7 @@ export default function TimelinePage() {
             </div>
           </div>
 
-          {/* Desktop Fixed Right Navigation */}
-          <div className="hidden md:block md:fixed md:right-8 md:top-4 lg:col-span-2 lg:col-start-11 md:col-span-2 md:col-start-12 col-span-12 pt-4 pb-20 transition-opacity z-20">
-            <div className="flex flex-col items-end text-right md:mt-0 mt-6">
-              <HoverLink
-                preset="work"
-                className="mb-2 no-underline hover:underline dark:text-white dark:hover:text-gray-300"
-                href="/"
-              >
-                Work
-              </HoverLink>
-              <HoverLink
-                preset="hero"
-                className="mb-2 no-underline hover:underline dark:text-white dark:hover:text-gray-300 font-medium"
-                href="/timeline"
-              >
-                Timeline
-              </HoverLink>
-              <HoverLink
-                preset="about"
-                className="mb-2 no-underline hover:underline dark:text-white dark:hover:text-gray-300"
-                href="/about"
-              >
-                About
-              </HoverLink>
-              <HoverLink
-                preset="notes"
-                className="mb-2 no-underline hover:underline dark:text-white dark:hover:text-gray-300"
-                href="/notes"
-              >
-                Notes
-              </HoverLink>
-              <HoverLink
-                preset="interactions_nav"
-                className="mb-2 no-underline hover:underline dark:text-white dark:hover:text-gray-300"
-                href="/interaction-archive"
-              >
-                Interactions
-              </HoverLink>
-              <HoverLink
-                preset="terminal"
-                className="mb-8 no-underline hover:underline dark:text-white dark:hover:text-gray-300"
-                href="/dev"
-              >
-                Terminal mode
-              </HoverLink>
-              <HoverLink
-                preset="linkedin"
-                className="mb-2 no-underline hover:underline dark:text-white dark:hover:text-gray-300"
-                target="_blank"
-                rel="noopener noreferrer"
-                href="https://www.linkedin.com/in/emran-hossain-80ab17190/"
-              >
-                LinkedIn
-              </HoverLink>
-              <HoverLink
-                preset="github"
-                className="mb-2 no-underline hover:underline dark:text-white dark:hover:text-gray-300"
-                target="_blank"
-                rel="noopener noreferrer"
-                href="https://github.com/git-emran"
-              >
-                GitHub
-              </HoverLink>
-              <HoverLink
-                preset="instagram"
-                className="mb-2 no-underline hover:underline dark:text-white dark:hover:text-gray-300"
-                target="_blank"
-                rel="noopener noreferrer"
-                href="https://www.instagram.com/designwithemran/"
-              >
-                Instagram
-              </HoverLink>
-              <HoverLink
-                preset="blog"
-                className="mb-2 no-underline hover:underline dark:text-white dark:hover:text-gray-300"
-                target="_blank"
-                rel="noopener noreferrer"
-                href="https://my-blog-omega-ashy.vercel.app/"
-              >
-                Blog
-              </HoverLink>
-            </div>
-          </div>
+
         </div>
       </div>
 
@@ -596,48 +474,7 @@ export default function TimelinePage() {
         </div>
       )}
 
-      {/* Mobile Bottom Navigation */}
-      <nav className="md:hidden flex flex-row flex-wrap px-7 py-2 pb-10 w-full">
-        <HoverLink
-          preset="linkedin"
-          className="text-left no-underline text-lg dark:text-white inline-block transition"
-          target="_blank"
-          rel="noopener noreferrer"
-          href="https://www.linkedin.com/in/emran-hossain-80ab17190/"
-        >
-          LinkedIn
-        </HoverLink>
-        <span className="mx-1 text-lg text-gray-400 dark:text-gray-500">/</span>
-        <HoverLink
-          preset="github"
-          className="text-left no-underline text-lg dark:text-white inline-block transition"
-          target="_blank"
-          rel="noopener noreferrer"
-          href="https://github.com/git-emran"
-        >
-          GitHub
-        </HoverLink>
-        <span className="mx-1 text-lg text-gray-400 dark:text-gray-500">/</span>
-        <HoverLink
-          preset="instagram"
-          className="text-left no-underline text-lg dark:text-white inline-block transition"
-          target="_blank"
-          rel="noopener noreferrer"
-          href="https://www.instagram.com/designwithemran/"
-        >
-          Instagram
-        </HoverLink>
-        <span className="mx-1 text-lg text-gray-400 dark:text-gray-500">/</span>
-        <HoverLink
-          preset="blog"
-          className="text-left no-underline text-lg dark:text-white inline-block transition"
-          target="_blank"
-          rel="noopener noreferrer"
-          href="https://my-blog-omega-ashy.vercel.app/"
-        >
-          Blog
-        </HoverLink>
-      </nav>
+
     </main>
   );
 }

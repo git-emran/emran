@@ -77,7 +77,7 @@ export const devData = {
       commits: 532,
       files: 1240,
       counts: {},
-      images: [{ file: "/assets/projects/get_genie1.gif", label: "editor-interface.gif" }],
+      images: [{ file: "/assets/projects/get_genie1.webp", label: "editor-interface.webp" }],
       lines: [
         "# GetGenie AI",
         "",
@@ -110,7 +110,7 @@ export const devData = {
       commits: 412,
       files: 890,
       counts: {},
-      images: [{ file: "/assets/projects/emran_project_writer.gif", label: "canvas-view.gif" }],
+      images: [{ file: "/assets/projects/emran_project_writer.webp", label: "canvas-view.webp" }],
       lines: [
         "# Writer Workspace",
         "",
@@ -179,7 +179,7 @@ export const devData = {
       commits: 620,
       files: 1105,
       counts: {},
-      images: [{ file: "/assets/projects/im-2.gif", label: "spatial-capture.gif" }],
+      images: [{ file: "/assets/projects/im-2.webp", label: "spatial-capture.webp" }],
       lines: [
         "# InsideMaps Capture",
         "",
@@ -248,7 +248,7 @@ export const devData = {
       commits: 310,
       files: 540,
       counts: {},
-      images: [{ file: "/assets/projects/office1.gif", label: "space-planner.gif" }],
+      images: [{ file: "/assets/projects/office1.webp", label: "space-planner.webp" }],
       lines: [
         "# The Office Outlet",
         "",

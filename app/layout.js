@@ -4,6 +4,7 @@ import { Analytics } from "@vercel/analytics/next";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 import Script from "next/script";
 import { HoverBackgroundProvider } from "./components/HoverBackgroundProvider";
+import Navbar, { MobileBottomNav } from "./components/Navbar";
 import ScrollToTopFab from "./components/ScrollToTopFab";
 import TerminalGlitchTransition from "./components/TerminalGlitchTransition";
 
@@ -56,7 +57,9 @@ export default function RootLayout({ children }) {
         className={`${geistSans.variable} ${geistMono.variable} ${jetbrainsMono.variable} antialiased bg-white text-black dark:bg-black dark:text-white min-h-screen`}
       >
         <HoverBackgroundProvider>
+          <Navbar />
           {children}
+          <MobileBottomNav />
           <ScrollToTopFab />
           <TerminalGlitchTransition />
         </HoverBackgroundProvider>

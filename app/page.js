@@ -4,46 +4,6 @@ import HoverLink from "./components/HoverLink";
 export default function Home() {
   return (
     <main className="tracking-tight md:px-2 md:py-1 px-0 py-1 bg-transparent text-black dark:text-white min-h-screen flex flex-col">
-      {/* Mobile Top Navigation */}
-      <div className="md:hidden flex flex-row justify-between items-center px-7 pt-4 pb-2 mb-6">
-        <div className="flex flex-row gap-6">
-          <HoverLink
-            preset="work"
-            className="text-lg no-underline hover:underline dark:text-white dark:hover:text-gray-300"
-            href="/"
-          >
-            Work
-          </HoverLink>
-          <HoverLink
-            preset="hero"
-            className="text-lg no-underline hover:underline dark:text-white dark:hover:text-gray-300"
-            href="/timeline"
-          >
-            Timeline
-          </HoverLink>
-          <HoverLink
-            preset="about"
-            className="text-lg no-underline hover:underline dark:text-white dark:hover:text-gray-300"
-            href="/about"
-          >
-            About
-          </HoverLink>
-          <HoverLink
-            preset="notes"
-            className="text-lg no-underline hover:underline dark:text-white dark:hover:text-gray-300"
-            href="/notes"
-          >
-            Notes
-          </HoverLink>
-          <HoverLink
-            preset="interactions_nav"
-            className="text-lg no-underline hover:underline dark:text-white dark:hover:text-gray-300"
-            href="/interaction-archive"
-          >
-            Interactions
-          </HoverLink>
-        </div>
-      </div>
 
       {/* Main Content Grid */}
       <div className="bg-transparent text-lg dark:text-white flex-1 w-full">
@@ -70,20 +30,21 @@ export default function Home() {
                 </HoverLink>
                 {" — "}
                 <span>
-                  WordPress Gutenberg-based AI writing assistant. I designed and engineered an interactive, responsive workspace bridging complex LLM pipelines directly into the editor workflow.
+                  WordPress Gutenberg-based AI writing assistant. 
                 </span>
               </div>
               <div className="grid grid-cols-12 md:gap-6 gap-2 -mr-[calc(100%/11)] md:mr-0">
                 <div className="mb-6 col-span-12">
                   <Image
                     alt="GetGenie AI"
-                    loading="lazy"
+                    priority={true}
+                    loading="eager"
                     width={1200}
                     height={750}
                     unoptimized
                     className="w-full rounded-none mb-0"
                     style={{ color: "transparent" }}
-                    src="/assets/projects/get_genie1.gif"
+                    src="/assets/projects/get_genie1.webp"
                   />
                 </div>
               </div>
@@ -101,7 +62,7 @@ export default function Home() {
                 </HoverLink>
                 {" — "}
                 <span>
-                  A thinking environment designed for deep work. Combines a distraction-free markdown editor with an infinite diagramming canvas, integrated Kanban board, and language server intelligence.
+                  A thinking environment designed for deep work. 
                 </span>
               </div>
               <div className="grid grid-cols-12 md:gap-6 gap-2 -mr-[calc(100%/11)] md:mr-0">
@@ -114,7 +75,7 @@ export default function Home() {
                     unoptimized
                     className="w-full rounded-none mb-0"
                     style={{ color: "transparent" }}
-                    src="/assets/projects/emran_project_writer.gif"
+                    src="/assets/projects/emran_project_writer.webp"
                   />
                 </div>
               </div>
@@ -132,7 +93,7 @@ export default function Home() {
                 </HoverLink>
                 {" — "}
                 <span>
-                  A multi-tiered, data-intensive dashboard for biotech laboratories. Re-architected non-linear information flows into an Atomic Design system with role-based UI and offline session caching for on-the-go tablet operations.
+                  A multi-tiered, data-intensive dashboard for biotech laboratories. 
                 </span>
               </div>
               <div className="grid grid-cols-12 md:gap-6 gap-2 -mr-[calc(100%/11)] md:mr-0">
@@ -173,7 +134,7 @@ export default function Home() {
                 </HoverLink>
                 {" — "}
                 <span>
-                  iOS application transforming room photography into interactive 3D tours. Conducted quantitative and qualitative user research across real estate appraisers to redesign asset capture mechanics and streamline AR guidance.
+                  iOS application transforming room photography into interactive 3D tours. 
                 </span>
               </div>
               <div className="grid grid-cols-12 md:gap-6 gap-2 -mr-[calc(100%/11)] md:mr-0">
@@ -186,7 +147,7 @@ export default function Home() {
                     unoptimized
                     className="w-full rounded-none mb-0"
                     style={{ color: "transparent" }}
-                    src="/assets/projects/im-2.gif"
+                    src="/assets/projects/im-2.webp"
                   />
                 </div>
               </div>
@@ -204,7 +165,7 @@ export default function Home() {
                 </HoverLink>
                 {" — "}
                 <span>
-                  React Native mobile SaaS for tennis academies in Denmark. Streamlined athlete metric monitoring, tournament scheduling, and equipment inventory into a fast, 3-step navigation system.
+                  React Native mobile SaaS for tennis academies in Denmark. 
                 </span>
               </div>
               <div className="grid grid-cols-12 md:gap-6 gap-2 -mr-[calc(100%/11)] md:mr-0">
@@ -245,7 +206,7 @@ export default function Home() {
                 </HoverLink>
                 {" — "}
                 <span>
-                  Interactive workstation space planning and e-commerce web application for the UAE market. Users can drag and drop ergonomic furniture elements into a virtual space and complete orders with live quotation estimates.
+                  Interactive workstation space planning and e-commerce web application for the UAE market. 
                 </span>
               </div>
               <div className="grid grid-cols-12 md:gap-6 gap-2 -mr-[calc(100%/11)] md:mr-0">
@@ -258,7 +219,7 @@ export default function Home() {
                     unoptimized
                     className="w-full rounded-none mb-0"
                     style={{ color: "transparent" }}
-                    src="/assets/projects/office1.gif"
+                    src="/assets/projects/office1.webp"
                   />
                 </div>
               </div>
@@ -272,11 +233,11 @@ export default function Home() {
                   className="text-black hover:underline dark:text-white dark:hover:text-gray-300"
                   href="/case-study/insidemaps-redesign"
                 >
-                  <span className="font-medium">InsideMaps — UX & Platform Redesign</span>
+                  <span className="font-medium">InsideMaps Platform Redesign</span>
                 </HoverLink>
                 {" — "}
                 <span>
-                  Re-architecting the web presence and user onboarding flow for a legacy 3D spatial platform. Redesigned information architecture from the ground up, boosting conversion and app activations by 80%.
+                  Re-architecting the web presence and user onboarding flow for a legacy 3D spatial platform. 
                 </span>
               </div>
               <div className="grid grid-cols-12 md:gap-6 gap-2 -mr-[calc(100%/11)] md:mr-0">
@@ -302,11 +263,11 @@ export default function Home() {
                   className="text-black hover:underline dark:text-white dark:hover:text-gray-300"
                   href="/interaction-archive"
                 >
-                  <span className="font-medium">Interaction Design & Spatial Prototypes</span>
+                  <span className="font-medium">Interaction Design & Branding & Illustration</span>
                 </HoverLink>
                 {" — "}
                 <span>
-                  An experimental collection of micro-interactions, gesture mechanics for VisionOS and iPadOS, custom mobile animation primitives, and tactile UI patterns.
+                  An experimental collection of micro-interactions, Illustration and Some branding work.
                 </span>
               </div>
               <div className="grid grid-cols-12 md:gap-6 gap-2 -mr-[calc(100%/11)] md:mr-0">
@@ -319,7 +280,7 @@ export default function Home() {
                     unoptimized
                     className="w-full rounded-none mb-0"
                     style={{ color: "transparent" }}
-                    src="/assets/projects/visionos1.gif"
+                    src="/assets/projects/visionos1.webp"
                   />
                 </div>
                 <div className="mb-6 md:mb-0 md:col-span-6 col-span-12">
@@ -331,141 +292,15 @@ export default function Home() {
                     unoptimized
                     className="w-full rounded-none mb-0"
                     style={{ color: "transparent" }}
-                    src="/assets/projects/ipados2.gif"
+                    src="/assets/projects/ipados2.webp"
                   />
                 </div>
               </div>
             </article>
           </div>
 
-          {/* Desktop Fixed Right Navigation */}
-          <div className="hidden md:block md:fixed md:right-8 md:top-4 lg:col-span-2 lg:col-start-11 md:col-span-2 md:col-start-12 col-span-12 pt-4 pb-20 transition-opacity z-20">
-            <div className="flex flex-col items-end text-right md:mt-0 mt-6">
-              <HoverLink
-                preset="work"
-                className="mb-2 no-underline hover:underline dark:text-white dark:hover:text-gray-300 font-medium"
-                href="/"
-              >
-                Work
-              </HoverLink>
-              <HoverLink
-                preset="hero"
-                className="mb-2 no-underline hover:underline dark:text-white dark:hover:text-gray-300"
-                href="/timeline"
-              >
-                Timeline
-              </HoverLink>
-              <HoverLink
-                preset="about"
-                className="mb-2 no-underline hover:underline dark:text-white dark:hover:text-gray-300"
-                href="/about"
-              >
-                About
-              </HoverLink>
-              <HoverLink
-                preset="notes"
-                className="mb-2 no-underline hover:underline dark:text-white dark:hover:text-gray-300"
-                href="/notes"
-              >
-                Notes
-              </HoverLink>
-              <HoverLink
-                preset="interactions_nav"
-                className="mb-2 no-underline hover:underline dark:text-white dark:hover:text-gray-300"
-                href="/interaction-archive"
-              >
-                Interactions
-              </HoverLink>
-              <HoverLink
-                preset="terminal"
-                className="mb-8 no-underline hover:underline dark:text-white dark:hover:text-gray-300"
-                href="/dev"
-              >
-                Terminal mode
-              </HoverLink>
-              <HoverLink
-                preset="linkedin"
-                className="mb-2 no-underline hover:underline dark:text-white dark:hover:text-gray-300"
-                target="_blank"
-                rel="noopener noreferrer"
-                href="https://www.linkedin.com/in/emran-hossain-80ab17190/"
-              >
-                LinkedIn
-              </HoverLink>
-              <HoverLink
-                preset="github"
-                className="mb-2 no-underline hover:underline dark:text-white dark:hover:text-gray-300"
-                target="_blank"
-                rel="noopener noreferrer"
-                href="https://github.com/git-emran"
-              >
-                GitHub
-              </HoverLink>
-              <HoverLink
-                preset="instagram"
-                className="mb-2 no-underline hover:underline dark:text-white dark:hover:text-gray-300"
-                target="_blank"
-                rel="noopener noreferrer"
-                href="https://www.instagram.com/designwithemran/"
-              >
-                Instagram
-              </HoverLink>
-              <HoverLink
-                preset="blog"
-                className="mb-2 no-underline hover:underline dark:text-white dark:hover:text-gray-300"
-                target="_blank"
-                rel="noopener noreferrer"
-                href="https://my-blog-omega-ashy.vercel.app/"
-              >
-                Blog
-              </HoverLink>
-            </div>
-          </div>
         </div>
       </div>
-
-      {/* Mobile Bottom Navigation */}
-      <nav className="md:hidden flex flex-row flex-wrap px-7 py-2 pb-10 w-full">
-        <HoverLink
-          preset="linkedin"
-          className="text-left no-underline text-lg dark:text-white inline-block transition"
-          target="_blank"
-          rel="noopener noreferrer"
-          href="https://www.linkedin.com/in/emran-hossain-80ab17190/"
-        >
-          LinkedIn
-        </HoverLink>
-        <span className="mx-1 text-lg text-gray-400 dark:text-gray-500">/</span>
-        <HoverLink
-          preset="github"
-          className="text-left no-underline text-lg dark:text-white inline-block transition"
-          target="_blank"
-          rel="noopener noreferrer"
-          href="https://github.com/git-emran"
-        >
-          GitHub
-        </HoverLink>
-        <span className="mx-1 text-lg text-gray-400 dark:text-gray-500">/</span>
-        <HoverLink
-          preset="instagram"
-          className="text-left no-underline text-lg dark:text-white inline-block transition"
-          target="_blank"
-          rel="noopener noreferrer"
-          href="https://www.instagram.com/designwithemran/"
-        >
-          Instagram
-        </HoverLink>
-        <span className="mx-1 text-lg text-gray-400 dark:text-gray-500">/</span>
-        <HoverLink
-          preset="blog"
-          className="text-left no-underline text-lg dark:text-white inline-block transition"
-          target="_blank"
-          rel="noopener noreferrer"
-          href="https://my-blog-omega-ashy.vercel.app/"
-        >
-          Blog
-        </HoverLink>
-      </nav>
     </main>
   );
 }

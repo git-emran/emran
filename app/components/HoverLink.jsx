@@ -24,6 +24,9 @@ export default function HoverLink({
   const [isLocalHovered, setIsLocalHovered] = useState(false);
 
   const handleMouseEnter = (e) => {
+    if (typeof window !== "undefined" && window.matchMedia && !window.matchMedia("(hover: hover)").matches) {
+      return;
+    }
     setIsLocalHovered(true);
     let rects = [];
     let shouldBlur = false;
@@ -88,9 +91,6 @@ export default function HoverLink({
         style={combinedStyle}
         onMouseEnter={handleMouseEnter}
         onMouseLeave={handleMouseLeave}
-        onTouchStart={handleMouseEnter}
-        onTouchEnd={handleMouseLeave}
-        onTouchCancel={handleMouseLeave}
         onClick={handleClick}
       >
         {children}
@@ -106,9 +106,6 @@ export default function HoverLink({
       style={combinedStyle}
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
-      onTouchStart={handleMouseEnter}
-      onTouchEnd={handleMouseLeave}
-      onTouchCancel={handleMouseLeave}
       onClick={handleClick}
     >
       {children}

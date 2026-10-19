@@ -8,7 +8,7 @@ export const projects = [
     description:
       "WordPress Gutenberg based AI Plugin. Perfect for generating SEO optimized content for your websites and Blogs. ",
     href: "/case-study/get-genie",
-    image: "/assets/projects/get_genie1.gif",
+    image: "/assets/projects/get_genie1.webp",
     bgImage: "/assets/backgrounds/blanket.jpg",
     frameworks: [
       { id: 1, name: "Web-app" },
@@ -51,7 +51,7 @@ export const projects = [
       ],
       solutionTitle: "A Unified Interface for SEO & Writing",
       solutionContent: "We architected a responsive, React-based dashboard embedded directly into the Gutenberg system. By designing the One-Click Blog Wizard, integrating AI Image Magic, and developing competitor head-to-head analysis components, we provided writers with a complete workspace that runs natively within their existing content system.",
-      solutionImages: [ "/assets/projects/get_genie1.gif", "/assets/projects/genie-1.webp", "/assets/projects/genie_gif.gif", "/assets/projects/genie_2.webp", "/assets/projects/genie-4.webp", "/assets/projects/genie-trust.webp" ],
+      solutionImages: [ "/assets/projects/get_genie1.webp", "/assets/projects/genie-1.webp", "/assets/projects/genie_gif.webp", "/assets/projects/genie_2.webp", "/assets/projects/genie-4.webp", "/assets/projects/genie-trust.webp" ],
       features: [
         "One-Click Blog Wizard: Generates SEO-optimized articles from keyword inputs within 60 seconds.",
         "AI Image Magic: Delivers high-quality contextual visual assets using simple inline interface commands.",
@@ -91,7 +91,7 @@ export const projects = [
     description:
       "A Data intensive Dashboard for FujiFilm Biotech Laboratories. A multi-tiered and interactive web app redesigned.",
     href: "/case-study/fujifilm-dashboard",
-    image: "/assets/projects/project1.png",
+    image: "/assets/projects/project1.webp",
     bgImage: "/assets/backgrounds/curtains.jpg",
     frameworks: [
       { id: 1, name: "Dashboard" },
@@ -128,7 +128,7 @@ export const projects = [
     description:
       "An iOS app to turn your images of your homes into interactive 3D tours. Ideal for Real estate appraisers",
     href: "/case-study/insidemaps-capture",
-    image: "/assets/projects/Hero-Image-1.png",
+    image: "/assets/projects/Hero-Image-1.webp",
     bgImage: "/assets/backgrounds/map.jpg",
     frameworks: [
       { id: 1, name: "SwiftUI" },
@@ -151,7 +151,7 @@ export const projects = [
         {
           title: "Quantitative Research — Phase 1",
           content: "Initial phase was divided into two parts. Part 1 was mostly quantitative analysis where I interviewed a group of 20 people. Questions were carefully crafted to generate relevant data.",
-          image: "/assets/projects/Hero-Image-1.png"
+          image: "/assets/projects/Hero-Image-1.webp"
         },
         {
           title: "Big Data Analysis",
@@ -167,7 +167,7 @@ export const projects = [
 
       solutionTitle: "Final Improvements",
       solutionContent: "These are the improvements I made after taking all the research into account.",
-      solutionImages: ["/assets/projects/im-2.gif"],
+      solutionImages: ["/assets/projects/im-2.webp"],
       
       improvementSections: [
         {
@@ -199,7 +199,7 @@ export const projects = [
     slug: "match-track",
     description: "React Native mobile application for Tennis Coaches.",
     href: "/case-study/match-track",
-    image: "/assets/projects/project3.png",
+    image: "/assets/projects/project3.webp",
     bgImage: "/assets/backgrounds/poster.jpg",
     frameworks: [
       { id: 1, name: "Mobile-App" },
@@ -264,7 +264,7 @@ export const projects = [
     slug: "office-outlet",
     description: "A web app to decorate and buy your next workstation ",
     href: "/case-study/office-outlet",
-    image: "/assets/projects/office1.gif",
+    image: "/assets/projects/office1.webp",
     bgImage: "/assets/backgrounds/table.jpg",
     frameworks: [
       { id: 1, name: "Web-app" },
@@ -385,7 +385,7 @@ export const projects = [
     description:
       "A Markdown text editor that is powered by vim mitions, has built-in LSP for 10+ languages including Rust, Go, C++ and Java",
     href: "/case-study/writer-app",
-    image: "/assets/projects/emran_project_writer.gif",
+    image: "/assets/projects/emran_project_writer.webp",
     bgImage: "/assets/backgrounds/blanket.jpg",
     frameworks: [
       { id: 1, name: "React" },
@@ -408,18 +408,18 @@ export const projects = [
         {
           title: "The Minimalist Developer Workflow",
           content: "Focusing on the core needs of a developer: fast syntax highlighting, Vim-native interactions, and a non-clunky interface for disposable notes and leetcode practice.",
-          image: "/assets/projects/writer-4.png"
+          image: "/assets/projects/writer-4.webp"
         },
         {
           title: "Expanding the Ecosystem (v2.02)",
           content: "Identifying the need for integrated Terminal, Task management and Visualization, leading to the addition of Kanban boards and the interactive Canvas system.",
-          image: "/assets/projects/terminal.gif"
+          image: "/assets/projects/terminal.webp"
         }
       ],
 
       solutionTitle: "A Comprehensive Markdown Editor",
       solutionContent: "Developed a high-performance desktop application using Electron and CodeMirror 6, integrating specialized features like a context based AI writer, MermaidJS rendering, and a real-time progress tracking system.",
-      solutionImages: ["/assets/projects/emran_project_writer.gif"],
+      solutionImages: ["/assets/projects/emran_project_writer.webp"],
       
       improvementSections: [
         {
@@ -442,7 +442,7 @@ export const projects = [
       resultsTitle: "Community Response & Evolution",
       resultsMetric: "v2.02",
       resultsContent: "Successfully delivered a redesigned UI that balances aesthetics with functionality. High performance was achieved through memoization and filetree state persistence, making it a reliable daily tool for developers globally.",
-      resultsImages: ["/assets/projects/writer-final.png"]
+      resultsImages: ["/assets/projects/writer-final.webp"]
     }
   },
 ];
@@ -489,57 +489,57 @@ export const testimonials = [
 
 const interactionDesignsByCategory = {
   "Restaurant": [
-    { title: "Profile Section",    image: "/assets/projects/restaurant1.gif" },
-    { title: "Review Address",    image: "/assets/projects/restaurant2.gif" },
-    { title: "Confirm Order",    image: "/assets/projects/restaurant3.gif" },
-    // { title: "Food Order Flow", image: "/assets/projects/your-new.gif" },
+    { title: "Profile Section",    image: "/assets/projects/restaurant1.webp" },
+    { title: "Review Address",    image: "/assets/projects/restaurant2.webp" },
+    { title: "Confirm Order",    image: "/assets/projects/restaurant3.webp" },
+    // { title: "Food Order Flow", image: "/assets/projects/your-new.webp" },
   ],
 
   "Books": [
-    { title: "Search Animation",  image: "/assets/projects/book2.gif" },
-    { title: "Library App",       image: "/assets/projects/book1.gif" },
-    { title: "Highlight text",       image: "/assets/projects/book3.gif" },
+    { title: "Search Animation",  image: "/assets/projects/book2.webp" },
+    { title: "Library App",       image: "/assets/projects/book1.webp" },
+    { title: "Highlight text",       image: "/assets/projects/book3.webp" },
   ],
 
   "Calendar": [
-    { title: "Date selection",    image: "/assets/projects/calendar1.gif" },
-    { title: "Weather Card Information",    image: "/assets/projects/calendar2.gif" },
-    { title: "Custom FAB Interaction",    image: "/assets/projects/calendar3.gif" },
+    { title: "Date selection",    image: "/assets/projects/calendar1.webp" },
+    { title: "Weather Card Information",    image: "/assets/projects/calendar2.webp" },
+    { title: "Custom FAB Interaction",    image: "/assets/projects/calendar3.webp" },
   ],
 
   "Health & Fitness": [
-    { title: "Item Selection",       image: "/assets/projects/fitness1.gif" },
-    { title: "Splash Screen",       image: "/assets/projects/fitness2.gif" },
-    { title: "Track Your Run",       image: "/assets/projects/fitness3.gif" },
+    { title: "Item Selection",       image: "/assets/projects/fitness1.webp" },
+    { title: "Splash Screen",       image: "/assets/projects/fitness2.webp" },
+    { title: "Track Your Run",       image: "/assets/projects/fitness3.webp" },
   ],
 
 
   "Maps": [
-    { title: "Prototype Animation",       image: "/assets/projects/maps1.gif" },
-    { title: "Finding Location",       image: "/assets/projects/maps2.gif" },
-    { title: "Location Finder",       image: "/assets/projects/maps3.gif" },
+    { title: "Prototype Animation",       image: "/assets/projects/maps1.webp" },
+    { title: "Finding Location",       image: "/assets/projects/maps2.webp" },
+    { title: "Location Finder",       image: "/assets/projects/maps3.webp" },
   ],
 
   "Website": [
-    { title: "Hover Interaction",       image: "/assets/projects/website1.gif" },
+    { title: "Hover Interaction",       image: "/assets/projects/website1.webp" },
   ],
 
   "Vision-OS": [
-    { title: "Custom Gestures",       image: "/assets/projects/visionos1.gif" },
+    { title: "Custom Gestures",       image: "/assets/projects/visionos1.webp" },
   ],
 
 
   "iPad-OS": [
-    { title: "Custom Gestures",       image: "/assets/projects/ipados1.gif" },
-    { title: "Custom Dock Animation",       image: "/assets/projects/ipados2.gif" },
+    { title: "Custom Gestures",       image: "/assets/projects/ipados1.webp" },
+    { title: "Custom Dock Animation",       image: "/assets/projects/ipados2.webp" },
   ],
 
   "Branding & Illustrations": [
-    { title: "Brand Identity", image: "/assets/projects/branding1.png" },
-    { title: "Creative Ad marketing",    image: "/assets/projects/branding2.png" },
-    { title: "illustration",    image: "/assets/projects/illus1.png" },
-    { title: "illustration",    image: "/assets/projects/illu2.png" },
-    { title: "illustration",    image: "/assets/projects/illu3.png" },
+    { title: "Brand Identity", image: "/assets/projects/branding1.webp" },
+    { title: "Creative Ad marketing",    image: "/assets/projects/branding2.webp" },
+    { title: "illustration",    image: "/assets/projects/illus1.webp" },
+    { title: "illustration",    image: "/assets/projects/illu2.webp" },
+    { title: "illustration",    image: "/assets/projects/illu3.webp" },
   ],
 
 };
