@@ -15,7 +15,7 @@ export default function Home() {
                 Emran Hossain
               </h1>
               <div className="leading-relaxed opacity-90">
-                I&apos;m a <strong className="font-serif">Designer</strong> and <strong className="font-serif">Software Engineer</strong>  who builds high-performance, polished digital products.</div>
+                I <strong className="font-serif">Design</strong> and <strong className="font-serif">Build</strong> Softwares and everything related to it. Things I build, are different because it&apos;s made with care, shaped by experience, built to fit. You can feel the <strong className="font-serif">difference</strong>.</div>
             </div>
 
             {/* Project 1: GetGenie */}
