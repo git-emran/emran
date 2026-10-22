@@ -249,6 +249,18 @@ export function HoverBackgroundProvider({ children }) {
       hideTimerRef.current = null;
     }
 
+    const isNavbarTrigger =
+      typeof customStyleOrPreset === "object" && customStyleOrPreset !== null
+        ? !!customStyleOrPreset.isNavbar
+        : false;
+
+    const isWorksPage = pathname === "/" || pathname === "";
+
+    // Except for links on the works page and navbar, other links should not trigger the hover animation
+    if (!isWorksPage && !isNavbarTrigger) {
+      return;
+    }
+
     let resolvedStyle = HOVER_PRESETS.default;
     let rects = [];
     let blur = false;

@@ -61,6 +61,10 @@ export const projects = [
     solutionContent:
       "I helped shape an experience that brought AI writing, keyword research, and SEO insights into one workflow. Features like the Blog Wizard and AI Image Magic let writers move from an idea to a more complete article without leaving the editor.",
 
+    solutionImages: [
+      "/assets/projects/get_genie1.webp",
+      "/assets/projects/genie_gif.webp"
+    ],
 
     features: [
       "Blog Wizard: Turn a keyword or topic into an article draft.",
@@ -128,6 +132,10 @@ export const projects = [
     problemContent:
       "The dashboard connected a lot of information, but it wasn't always clear how everything fit together. Scientists and lab administrators had to navigate nested tasks and disconnected workflows just to figure out what to do next. I led the redesign to make the experience more structured, predictable, and easier to use.",
 
+    problemImages: [
+      "/assets/projects/before-fuji.webp"
+    ],
+
     solutionTitle: "One System, Built for Different Lab Roles",
     solutionContent:
       "I worked with engineering and lab operations to rethink how information and tasks were organized. We built a reusable design system that could support different roles without creating a separate experience for each one. Since lab work doesn't always happen at a desk, we also prioritized responsive layouts, saved sessions, and cached data for more reliable access on the go.",
@@ -150,7 +158,10 @@ export const projects = [
     resultsTitle: "A Clearer Way to Work",
     resultsMetric: "70%",
     resultsContent:
-      "The redesigned dashboard made complex workflows easier to follow and helped new users get up to speed faster. Onboarding time was reduced by 70%, turning a fragmented experience into a more consistent system for day-to-day lab work."
+      "The redesigned dashboard made complex workflows easier to follow and helped new users get up to speed faster. Onboarding time was reduced by 70%, turning a fragmented experience into a more consistent system for day-to-day lab work.",
+    resultsImages: [
+      "/assets/projects/after-fuji.webp"
+    ]
   }
 },
 {

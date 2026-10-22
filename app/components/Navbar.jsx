@@ -3,6 +3,7 @@
 import React from "react";
 import { usePathname } from "next/navigation";
 import HoverLink from "./HoverLink";
+import { NavbarProvider } from "./NavbarContext";
 
 function MobileNavLink({ href, preset, label, isActive }) {
   return (
@@ -68,9 +69,9 @@ export function Navbar() {
     pathname === "/interaction-archive" || pathname.startsWith("/interaction-archive");
 
   return (
-    <>
+    <NavbarProvider>
       {/* Mobile Top Navigation - Persistent across page navigations */}
-      <header className="md:hidden flex flex-row items-center px-7 pt-4 pb-2 mb-6 w-full">
+      <header className="md:hidden flex flex-row items-center px-7 pt-4 pb-2 mb-6 w-full" data-navbar="true">
         <nav className="flex flex-row gap-5" aria-label="Main Navigation">
           <MobileNavLink
             href="/"
@@ -109,6 +110,7 @@ export function Navbar() {
       <aside
         className="hidden md:block md:fixed md:right-8 md:top-4 z-20 pt-4 pb-20 transition-opacity"
         aria-label="Desktop Navigation"
+        data-navbar="true"
       >
         <div className="flex flex-col items-end text-right md:mt-0 mt-6">
           <DesktopNavLink
@@ -186,7 +188,7 @@ export function Navbar() {
           </HoverLink>
         </div>
       </aside>
-    </>
+    </NavbarProvider>
   );
 }
 
@@ -199,7 +201,8 @@ export function MobileBottomNav() {
   }
 
   return (
-    <footer className="md:hidden flex flex-row flex-wrap px-7 py-2 pb-10 w-full mt-auto">
+    <NavbarProvider>
+      <footer className="md:hidden flex flex-row flex-wrap px-7 py-2 pb-10 w-full mt-auto" data-navbar="true">
       <HoverLink
         preset="linkedin"
         className="text-left nav-link-hover text-lg dark:text-white inline-block transition"
@@ -239,7 +242,8 @@ export function MobileBottomNav() {
       >
         Blog
       </HoverLink>
-    </footer>
+      </footer>
+    </NavbarProvider>
   );
 }
 

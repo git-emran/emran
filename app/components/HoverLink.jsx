@@ -2,7 +2,9 @@
 
 import React, { useState } from "react";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { useHoverBackground } from "./HoverBackgroundProvider";
+import { useNavbarContext } from "./NavbarContext";
 
 export default function HoverLink({
   href,
@@ -21,12 +23,33 @@ export default function HoverLink({
   ...props
 }) {
   const { triggerHover, clearHover } = useHoverBackground();
+  const inNavbarFromContext = useNavbarContext();
+  const pathname = usePathname();
   const [isLocalHovered, setIsLocalHovered] = useState(false);
 
   const handleMouseEnter = (e) => {
     if (typeof window !== "undefined" && window.matchMedia && !window.matchMedia("(hover: hover)").matches) {
       return;
     }
+
+    const isNavbar =
+      inNavbarFromContext ||
+      props["data-navbar"] === "true" ||
+      props["data-navbar"] === true ||
+      !!(
+        e?.currentTarget &&
+        e.currentTarget.closest(
+          "[data-navbar='true'], header > nav, aside[aria-label='Desktop Navigation'], footer"
+        )
+      );
+
+    const isWorksPage = pathname === "/" || pathname === "";
+
+    // Except for links on the works page and navbar, other links should not trigger the hover animation
+    if (!isWorksPage && !isNavbar) {
+      return;
+    }
+
     setIsLocalHovered(true);
     let rects = [];
     let shouldBlur = false;
@@ -50,6 +73,7 @@ export default function HoverLink({
     triggerHover({
       rects,
       shouldBlur,
+      isNavbar,
       ...(preset ? { preset } : {}),
       ...(tint ? { tint } : {}),
       ...(distortion !== undefined ? { distortion } : {}),
