@@ -45,8 +45,8 @@ export default function HoverLink({
 
     const isWorksPage = pathname === "/" || pathname === "";
 
-    // Except for links on the works page and navbar, other links should not trigger the hover animation
-    if (!isWorksPage && !isNavbar) {
+    // Only links on the works page (not in navbar) should trigger the background hover animation
+    if (isNavbar || !isWorksPage) {
       return;
     }
 
