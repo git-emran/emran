@@ -256,8 +256,8 @@ export function HoverBackgroundProvider({ children }) {
 
     const isWorksPage = pathname === "/" || pathname === "";
 
-    // Except for links on the works page and navbar, other links should not trigger the hover animation
-    if (!isWorksPage && !isNavbarTrigger) {
+    // Only links on the works page (not in navbar) should trigger the hover animation
+    if (isNavbarTrigger || !isWorksPage) {
       return;
     }
 
