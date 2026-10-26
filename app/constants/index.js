@@ -22,7 +22,7 @@ export const projects = [
   caseStudy: {
     role: "Senior Designer & Frontend Developer",
     team: "Engineering Lead, CTO, CEO, Senior Designer",
-    techStack: "React, JavaScript, Ant Design",
+    techStack: "AngularJS, JavaScript, Ant Design",
 
     overview:
       "GetGenie helps people write and optimize content with AI. I worked on making that experience feel natural inside WordPress, so writers could research keywords, draft articles, and improve SEO without constantly switching tools.",
