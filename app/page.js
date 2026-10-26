@@ -30,7 +30,7 @@ export default function Home() {
                 </HoverLink>
                 {" — "}
                 <span>
-                  WordPress Gutenberg-based AI writing assistant. 
+                  Desgined and Built WordPress Gutenberg-based AI writing assistant. 
                 </span>
               </div>
               <div className="grid grid-cols-12 md:gap-6 gap-2 -mr-[calc(100%/11)] md:mr-0">
@@ -62,7 +62,7 @@ export default function Home() {
                 </HoverLink>
                 {" — "}
                 <span>
-                  A thinking environment designed for deep work. 
+                 Creator and Maintiner of a thinking environment designed for deep work. 
                 </span>
               </div>
               <div className="grid grid-cols-12 md:gap-6 gap-2 -mr-[calc(100%/11)] md:mr-0">
@@ -93,7 +93,7 @@ export default function Home() {
                 </HoverLink>
                 {" — "}
                 <span>
-                  A multi-tiered, data-intensive dashboard for biotech laboratories. 
+                  Redesigned a multi-tiered, data-intensive dashboard for biotech laboratories. 
                 </span>
               </div>
               <div className="grid grid-cols-12 md:gap-6 gap-2 -mr-[calc(100%/11)] md:mr-0">
@@ -134,7 +134,7 @@ export default function Home() {
                 </HoverLink>
                 {" — "}
                 <span>
-                  iOS application transforming room photography into interactive 3D tours. 
+                  Redesigned an iOS app transforming room photography into interactive 3D tours. 
                 </span>
               </div>
               <div className="grid grid-cols-12 md:gap-6 gap-2 -mr-[calc(100%/11)] md:mr-0">
@@ -165,7 +165,7 @@ export default function Home() {
                 </HoverLink>
                 {" — "}
                 <span>
-                  React Native mobile SaaS for tennis academies in Denmark. 
+                  Built a React Native mobile SaaS for tennis academies in Denmark. 
                 </span>
               </div>
               <div className="grid grid-cols-12 md:gap-6 gap-2 -mr-[calc(100%/11)] md:mr-0">
@@ -206,7 +206,7 @@ export default function Home() {
                 </HoverLink>
                 {" — "}
                 <span>
-                  Interactive workstation space planning and e-commerce web application for the UAE market. 
+                  Designed and Built an Interactive workstation space planning and e-commerce web application for the UAE market. 
                 </span>
               </div>
               <div className="grid grid-cols-12 md:gap-6 gap-2 -mr-[calc(100%/11)] md:mr-0">
@@ -267,7 +267,7 @@ export default function Home() {
                 </HoverLink>
                 {" — "}
                 <span>
-                  An experimental collection of micro-interactions, Illustration and Some branding work.
+                  A collection of micro-interactions, Illustration and Some branding work.
                 </span>
               </div>
               <div className="grid grid-cols-12 md:gap-6 gap-2 -mr-[calc(100%/11)] md:mr-0">
